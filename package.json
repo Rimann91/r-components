@@ -1,0 +1,23 @@
+{
+  "name": "r-components",
+  "version": "1.0.0",
+  "description": "my custom web components",
+  "homepage": "https://github.com/Rimann91/r-components#readme",
+  "bugs": {
+    "url": "https://github.com/Rimann91/r-components/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rimann91/r-components.git"
+  },
+  "license": "ISC",
+  "author": "Riley Hughes",
+  "type": "commonjs",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "vitest"
+  }
+}
