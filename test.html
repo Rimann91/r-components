@@ -1,0 +1,117 @@
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width-device-width, initial-scale=1.0"/>
+    <meta charset="utf-8"/>
+    <script defer src='button.js'></script>
+    <script defer src='card.js'></script>
+    <script defer src='collapse.js'></script>
+    <link rel="stylesheet" href="./gruvbox_dark_colors.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+    <script>
+
+function toggleCardVis(event) {
+  const rcol = document.querySelector('.button-card-collapse');
+  console.log(rcol);
+  rcol.toggleAttribute('open');
+}
+
+    </script>
+
+    <style>
+
+html body {
+  padding: 0;
+  margin: 0;
+}
+.container {
+  background-color: var(--color-gray-200);
+  width: 100%;
+  height: 100vh;
+  font-family: 'fira-code', monospace;
+}
+.button-container{
+  background-color: var(--color-bg-primary);
+}
+r-card {
+  padding: 8px;
+}
+.button-card-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  min-height: 0px;
+}
+r-collapse r-button {
+  margin: 5px;
+}
+pre {
+  counter-reset: line;
+  background-color: var(--color-fg-primary);
+  color: var(--color-bg-primary);
+  overflow-x: auto;
+  padding: 0.5rem;
+  border-radius: 4px;
+  margin: 1rem;
+}
+
+code > span {
+  display: block;
+  counter-increment: line;
+}
+
+code > span::before {
+  content: counter(line);
+  opacity: 0.4;
+  margin-right: 1em;
+}
+div.doc {
+  border-top: solid 1px var(--color-divider);
+  font-family: 'fira-code', monospace;
+  font-size: 14px;
+}
+p {
+  font-family: 'fira-code', monospace;
+  font-size: 14px;
+}
+
+    </style>
+
+  </head>
+  <body>
+    <div class='container'>
+    <r-card title="Buttons">
+      <div slot='header-slot-right'><r-button tertiary onclick="toggleCardVis(event)">E</button></div>
+      <r-collapse open class='button-card-collapse'>
+        <div class='button-card-content'>
+          <r-button primary>Primary</r-button>
+          <r-button secondary>Secondary</r-button>
+          <r-button tertiary>Tertiary</r-button>
+          <r-button success>Success</r-button>
+          <r-button danger>Danger</r-button>
+          <r-button></r-button>
+        </div>
+        <div class="doc">
+          <pre><code>
+            <span>&lt;r-button primary&gt;Text&lt;/r-button&gt;</span>
+          </code></pre>
+          <div>
+            <p>r-button provides four semantic styles</p>
+            <p>
+              <div>- primary: default to this for most button</div>
+              <div>- secondary: usually for when you need a second button next to primary, also can be used as an 'inactive' state</div>
+              <div>- tertiary</div>
+              <div>- success</div>
+              <div>- danger</div>
+            </p>
+            <p></p>
+          </div>
+        </div>
+      </r-collapse>
+    </r-card>
+    <r-collapse> SOME STUFF </r-collapse>
+    </div>
+  </body>
+</html>

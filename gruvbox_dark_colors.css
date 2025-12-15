@@ -1,0 +1,79 @@
+:root {
+  /* Primary Palette */
+  --color-primary-white: #fbf1c7;
+  --color-primary-red: #cc241d;
+  --color-primary-green: #98971a;
+  --color-primary-yellow: #d79921;
+  --color-primary-blue: #458588;
+  --color-primary-purple: #b16286;
+  --color-primary-orange: #d65d0e
+  --color-primary-aqua: #689d6a;
+  --color-primary-gray: #7c6f64;
+
+  /* Secondary Palette */
+  --color-secondary-red: #9d0006;
+  --color-secondary-green: #79740e;
+  --color-secondary-yellow: #b57614;
+  --color-secondary-blue: #076678;
+  --color-secondary-purple: #8f3f71;
+  --color-secondary-orange: #af3a03
+  --color-secondary-aqua: #427b58;
+  --color-secondary-gray: #3c3836;
+
+  /* Neutral / Greys */
+  --color-gray-100: #ebdbb2;
+  --color-gray-200: #d5c4a1;
+  --color-gray-300: #bdae93;
+  --color-gray-400: #a89984;
+  --color-gray-500: #928374;
+  --color-gray-600: #7c6f64;
+  --color-gray-700: #665c54;
+  --color-gray-800: #504945;
+  --color-gray-900: #3c3836;
+
+  /* Semantic colors */
+  --color-success: var(--color-secondary-green);
+  --color-warning: var(--color-secondary-yellow);
+  --color-danger:  var(--color-secondary-red); 
+  --color-bg-primary:  var(--color-primary-white);
+  --color-bg-secondary: var(--color-gray-100);
+  --color-fg-primary:  var(--color-gray-700);
+  --color-fg-dark: var(--color-secondary-gray);
+  --color-divider: var(--color-gray-300);
+}
+
+@media (prefers-color-scheme: dark){
+  :root {
+    /* Primary Palette */
+    --color-primary-white: #282828;
+    --color-primary-red: #cc241d;
+    --color-primary-green: #98971a;
+    --color-primary-yellow: #d79921;
+    --color-primary-blue: #458588;
+    --color-primary-purple: #b16286;
+    --color-primary-orange: #d65d0e
+    --color-primary-aqua: #689d6a;
+    --color-primary-gray: #a89984;
+
+    /* Secondary Palette */
+    --color-secondary-red: #fb4934;
+    --color-secondary-green: #b8bb26;
+    --color-secondary-yellow: #fabd2f;
+    --color-secondary-blue: #83a598;
+    --color-secondary-purple: #d3869b;
+    --color-secondary-orange: #fe8019;
+    --color-secondary-aqua: #8ec07c;
+    --color-secondary-gray: #3c3836;
+  
+    /* Neutral / Greys */
+    --color-gray-100: #282828;
+    --color-gray-200: #3c3836;
+    --color-gray-300: #504945;
+    --color-gray-400: #665c54;
+    --color-gray-500: #7c6f64;
+    --color-gray-600: #928374;
+    --color-gray-700: #a89984;
+    --color-gray-800: #bdae93;
+    --color-gray-900: #d5c4a1;
+  }
+}
