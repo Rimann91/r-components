@@ -3,10 +3,11 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width-device-width, initial-scale=1.0"/>
     <meta charset="utf-8"/>
-    <script defer src='button.js'></script>
-    <script defer src='card.js'></script>
-    <script defer src='collapse.js'></script>
-    <link rel="stylesheet" href="./gruvbox_dark_colors.css">
+    <script defer src='../src/primitives/button.js'></script>
+    <script defer src='../src/primitives/card.js'></script>
+    <script defer src='../src/primitives/collapse.js'></script>
+    <script defer src='../src/primitives/typography/text.js'></script>
+    <link rel="stylesheet" href="../styles/gruvbox_dark_colors.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
@@ -81,7 +82,7 @@ p {
 
   </head>
   <body>
-    <div class='container'>
+    <divtext class='container'>
     <r-card title="Buttons">
       <div slot='header-slot-right'><r-button tertiary onclick="toggleCardVis(event)">E</button></div>
       <r-collapse open class='button-card-collapse'>
@@ -99,19 +100,18 @@ p {
           </code></pre>
           <div>
             <p>r-button provides four semantic styles</p>
-            <p>
+            <r-text size="base">
               <div>- primary: default to this for most button</div>
               <div>- secondary: usually for when you need a second button next to primary, also can be used as an 'inactive' state</div>
               <div>- tertiary</div>
               <div>- success</div>
               <div>- danger</div>
-            </p>
-            <p></p>
+            </r-text>
           </div>
         </div>
       </r-collapse>
     </r-card>
-    <r-collapse> SOME STUFF </r-collapse>
+    <r-collapse open> SOME STUFF </r-collapse>
     </div>
   </body>
 </html>
