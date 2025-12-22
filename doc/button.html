@@ -1,0 +1,100 @@
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width-device-width, initial-scale=1.0"/>
+    <meta charset="utf-8"/>
+    <script type='module' src='../src/primitives/card.js'></script>
+    <script type='module' src='../src/primitives/button.js'></script>
+    <script type='module' src='../src/primitives/collapse.js'></script>
+    <script type='module' src='../src/primitives/typography/text.js'></script>
+    <script type='module' src='../src/primitives/typography/heading.js'></script>
+    <script type='module' src='../src/primitives/divider.js'></script>
+    <link rel="stylesheet" href="../styles/gruvbox_dark_colors.css">
+    <link rel="stylesheet" href="../shared.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+    <script>
+
+    function toggleCardVis(event) {
+      const rcol = document
+                    .querySelector('.button-card-collapse')
+                    .toggleAttribute('open'); }
+
+    </script>
+
+    <style>
+
+    .button-card-content {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      min-height: 0px;
+    }
+    r-collapse r-button {
+      margin: 5px;
+    }
+
+    </style>
+
+  </head>
+  <body>
+    <div class='container'>
+    <r-card title="Buttons">
+      <div slot='header-slot-right'><r-button tertiary onclick="toggleCardVis(event)">E</button></div>
+      <r-collapse open class='button-card-collapse'>
+        <div class='button-card-content'>
+          <r-button primary>Primary</r-button>
+          <r-button secondary>Secondary</r-button>
+          <r-button tertiary>Tertiary</r-button>
+          <r-button success>Success</r-button>
+          <r-button danger>Danger</r-button>
+          <r-button></r-button>
+        </div>
+        <div class="doc">
+          <pre><code>
+            <span>&lt;r-button primary&gt;Text&lt;/r-button&gt;</span>
+          </code></pre>
+          <div>
+            <r-text>r-button provides five semantic styles accesible by attribute</r-text>
+            <r-heading three>
+              Attributes
+            </r-heading>
+            <r-text size="base">
+              <ul>
+                <li> <r-text emphasized>primary</r-text>: default to this for most button</li>
+                <li> <r-text emphasized>secondary</r-text>: usually for when you need a second button next to primary</li>
+                <li> <r-text emphasized>tertiary</r-text>: blends in with primary background</li>
+                <li> <r-text emphasized>success</r-text>: green color for affirmative actions or aknowledgment</li>
+                <li> <r-text emphasized>danger</r-text>: red color for destructive actions</li>
+              </ul>
+            </r-text>
+              <r-divider></r-divider>
+            <r-heading three>
+              CSS Variables
+            </r-heading>
+            <r-text>
+              <div><r-text emphasized>--button-border-width</r-text>: 1px;</div>
+              <div><r-text emphasized>--button-padding</r-text>: 4px;</div>
+              <div><r-text emphasized>--button-radius</r-text>: 2px;</div>
+              <div><r-text emphasized>--button-font-weight</r-text>: 400;</div>
+              <div><r-text emphasized>--button-font-size</r-text>: 14px;</div>
+              <div><r-text emphasized>--color-background-hollow</r-text>: var(--color-background-primary);</div>
+              <div><r-text emphasized>--color-button-primary</r-text>: var(--color-primary-blue);</div>
+              <div><r-text emphasized>--color-button-hover-primary</r-text>: var(--color-secondary-blue);</div>
+              <div><r-text emphasized>--color-button-secondary</r-text>: var(--color-fg-primary);</div>
+              <div><r-text emphasized>--color-button-hover-secondary</r-text>: var(--color-gray-600);</div>
+              <div><r-text emphasized>--color-button-tertiary</r-text>: var(--color-bg-primary);</div>
+              <div><r-text emphasized>--color-button-hover-tertiary</r-text>: var(--color-gray-200);</div>
+              <div><r-text emphasized>--color-button-success</r-text>: var(--color-primary-green);</div>
+              <div><r-text emphasized>--color-button-hover-success</r-text>: var(--color-secondary-green);</div>
+              <div><r-text emphasized>--color-button-danger</r-text>: var(--color-primary-red);</div>
+              <div><r-text emphasized>--color-button-hover-danger</r-text>: var(--color-secondary-red);</div>
+            </r-text>
+          </div>
+        </div>
+      </r-collapse>
+    </r-card>
+    </div>
+  </body>
+</html>

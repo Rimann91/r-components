@@ -1,12 +1,12 @@
-const cardTemplate = document.createElement('template')
-cardTemplate.innerHTML = `
+const template = document.createElement('template')
+template.innerHTML = `
   <style> 
     :host {
       display: block;
       width: 100%;
       box-sizing: border-box;
-      --card-color-bg: var(--color-bg-primary);
       font-family: 'fira code', monospace;
+      --card-color-bg: var(--color-bg-primary);
     }
     .container {
       background-color: var(--card-color-bg);
@@ -23,7 +23,8 @@ cardTemplate.innerHTML = `
     .title {
       padding: 8px;
       font-weight: 700;
-      font-size: 16;
+      font-size: 1.25rem;
+      line-height: 1.25
     }
     .header-right-slot {
       padding: 8px;
@@ -54,7 +55,7 @@ class RCard extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
-    this.shadowRoot.append(cardTemplate.content.cloneNode(true))
+    this.shadowRoot.append(template.content.cloneNode(true))
     this._title = this.shadowRoot.querySelector('.title')
   }
 

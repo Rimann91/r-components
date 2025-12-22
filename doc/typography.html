@@ -1,0 +1,91 @@
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width-device-width, initial-scale=1.0"/>
+    <meta charset="utf-8"/>
+    <script type="module" src='../src/primitives/button.js'></script>
+    <script type="module" src='../src/primitives/card.js'></script>
+    <script type="module" src='../src/primitives/collapse.js'></script>
+    <script type="module" src='../src/primitives/typography/text.js'></script>
+    <script type="module" src='../src/primitives/typography/heading.js'></script>
+    <link rel="stylesheet" href="../styles/gruvbox_dark_colors.css">
+    <link rel="stylesheet" href="../shared.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+
+    <script>
+    </script>
+
+    <style>
+    </style>
+
+  </head>
+  <body>
+    <div class='container'>
+    <r-card title="Typography">
+        <r-heading three>Summary</r-heading>
+        <r-text>
+          <p>
+            Typography consists of a collection of elements for displaying text
+          </p>
+
+          <pre><code>
+            <span>&lt;r-text size='base'&gt; Here is some text &lt;/r-text&gt;</span>
+            <span>&lt;r-text size='base'&gt; &lt;p&gt; Here is some inner html &lt;p&gt; &lt;/r-text&gt;</span>
+          </code></pre>
+
+        </r-text>
+        <r-heading three>Text</r-heading>
+        <r-heading four>attributes</r-heading>
+        <ul>
+          <li>muted</li>
+          <li>emphasized</li>
+          <li>size='small'</li>
+          <li>size='base'</li>
+          <li>size='large'</li>
+        </ul>
+        <r-heading four>css variables</r-heading>
+        <p>
+          <div>--font-body: "Fira Code", monospace;</div>
+          <div>--text-base: 1rem;</div>
+          <div>--text-small: 0.875rem;</div>
+          <div>--text-large: 1.123rem;</div>
+          <div>--text-muted: var(--color-gray-300);</div>
+          <div>--text-emphasized: var(--color-gray-800);</div>
+          <div>--text-emphasized-weight: 700;</div>
+          <div>--text-line-height: 1.25;</div>
+        </p>
+        <r-heading three>Heading</r-heading>
+
+          <pre><code>
+            <span>&lt;r-heading&gt; Here is a heading &lt;/r-heading&gt;</span>
+          </code></pre>
+
+        <r-heading four>attributes</r-heading>
+          <ul>
+          <li>one</li>
+          <li>two</li>
+          <li>three</li>
+          <li>four</li>
+          </ul>
+        <r-heading four>css variables</r-heading>
+        <r-text>
+          <p>
+            <div>--font-body: "Fira Code", monospace;</div>
+            <div>--heading-size-1: 1.75rem;</div>
+            <div>--heading-size-2: 1.50rem;</div>
+            <div>--heading-size-3: 1.25rem;</div>
+            <div>--heading-size-4: 1rem;</div>
+            <div>--text-small: 0.875rem;</div>
+            <div>--text-large: 1.123rem;</div>
+            <div>--heading-color: var(--color-fg-primary);</div>
+            <div>--heading-weight-1: 700;</div>
+            <div>--heading-weight-2: 600;</div>
+            <div>--heading-line-height: 1.5;</div>
+            <div>--vertical-margin: 8px;</div>
+          </r-text>
+    </r-card>
+    </div>
+  </body>
+</html>

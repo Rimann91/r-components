@@ -1,5 +1,5 @@
-const collapseTemplate = document.createElement('template')
-collapseTemplate.innerHTML = `
+const template = document.createElement('template')
+template.innerHTML = `
   <style> 
     :host {
       display: block;
@@ -35,7 +35,7 @@ class RCollapse extends HTMLElement {
     super();
     console.log('collapse constructed');
     this.attachShadow({ mode: "open" });
-    this.shadowRoot.append(collapseTemplate.content.cloneNode(true))
+    this.shadowRoot.append(template.content.cloneNode(true))
   }
 
   open(){
