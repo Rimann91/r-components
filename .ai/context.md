@@ -125,6 +125,7 @@ r-components/
 | Stack | `r-stack` | `src/layout/stack.js` |
 | Cluster | `r-cluster` | `src/layout/cluster.js` |
 | Grid | `r-grid` | `src/layout/grid.js` |
+| Split | `r-split` | `src/layout/split.js` |
 | Container | `r-container` | `src/layout/container.js` |
 
 ## Future Roadmap

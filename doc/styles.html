@@ -1,0 +1,529 @@
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script type="module" src="./doc.js"></script>
+    <link rel="stylesheet" href="../styles/gruvbox_dark_colors.css">
+    <link rel="stylesheet" href="../shared.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+    <style>
+      /* ── Token table ── */
+      .token-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: var(--text-sm);
+      }
+      .token-table th {
+        text-align: left;
+        padding: var(--space-2) var(--space-3);
+        border-bottom: 2px solid var(--color-divider);
+        color: var(--color-fg-muted);
+        font-size: var(--text-xs);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        font-weight: var(--font-weight-bold);
+      }
+      .token-table td {
+        padding: var(--space-2) var(--space-3);
+        border-bottom: 1px solid var(--color-divider);
+        vertical-align: middle;
+        color: var(--color-fg-secondary);
+      }
+      .token-table tr:last-child td {
+        border-bottom: none;
+      }
+      .token-name {
+        font-family: 'Fira Code', monospace;
+        color: var(--color-fg-primary);
+        white-space: nowrap;
+      }
+      .token-value {
+        font-family: 'Fira Code', monospace;
+        color: var(--color-fg-muted);
+        font-size: var(--text-xs);
+      }
+      .token-desc {
+        color: var(--color-fg-secondary);
+        font-size: var(--text-sm);
+      }
+
+      /* ── Color swatch ── */
+      .swatch-row {
+        display: flex;
+        align-items: center;
+        gap: var(--space-3);
+      }
+      .swatch {
+        width: 28px;
+        height: 28px;
+        border-radius: var(--radius);
+        border: 1px solid rgba(0,0,0,0.15);
+        flex-shrink: 0;
+      }
+
+      /* ── Spacing preview ── */
+      .space-bar {
+        display: inline-block;
+        height: 12px;
+        background: var(--color-primary-blue);
+        border-radius: 2px;
+        opacity: 0.7;
+      }
+
+      /* ── Shadow preview ── */
+      .shadow-box {
+        display: inline-block;
+        width: 80px;
+        height: 28px;
+        background: var(--color-bg-primary);
+        border-radius: var(--radius);
+      }
+
+      /* ── Section note ── */
+      .note {
+        background: var(--color-bg-secondary);
+        border-left: 3px solid var(--color-primary-yellow);
+        padding: var(--space-2) var(--space-4);
+        border-radius: 0 var(--radius) var(--radius) 0;
+        font-size: var(--text-sm);
+        color: var(--color-fg-secondary);
+        margin: var(--space-2) 0;
+      }
+      .note code {
+        font-family: 'Fira Code', monospace;
+        color: var(--color-fg-primary);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <r-card title="Design Tokens">
+
+        <r-heading three>Overview</r-heading>
+        <r-text>
+          <p>All design tokens live in <code>styles/gruvbox_dark_colors.css</code> and are available as CSS custom
+          properties on <code>:root</code>. They automatically swap between light and dark values via
+          <code>@media (prefers-color-scheme: dark)</code> — no class toggling required.</p>
+          <p>Components never reference global tokens directly in shadow styles. Instead, each component
+          exposes <code>--component-*</code> vars on <code>:host</code> that fall back to the relevant global token
+          (ADR-006). This allows per-instance overrides from outside the shadow DOM.</p>
+        </r-text>
+
+        <r-divider></r-divider>
+
+        <!-- ── SPACING ── -->
+        <r-heading three>Spacing Scale</r-heading>
+        <r-text><p>4px base unit. Use for <code>padding</code>, <code>margin</code>, <code>gap</code>, and
+        positional offsets. Pass the number as an attribute on layout components
+        (e.g. <code>gap="4"</code>) or reference directly as <code>var(--space-4)</code>.</p></r-text>
+
+        <table class="token-table">
+          <thead><tr><th>Token</th><th>Value</th><th>Preview</th></tr></thead>
+          <tbody>
+            <tr><td class="token-name">--space-1</td>  <td class="token-value">4px</td>  <td><span class="space-bar" style="width:4px"></span></td></tr>
+            <tr><td class="token-name">--space-2</td>  <td class="token-value">8px</td>  <td><span class="space-bar" style="width:8px"></span></td></tr>
+            <tr><td class="token-name">--space-3</td>  <td class="token-value">12px</td> <td><span class="space-bar" style="width:12px"></span></td></tr>
+            <tr><td class="token-name">--space-4</td>  <td class="token-value">16px</td> <td><span class="space-bar" style="width:16px"></span></td></tr>
+            <tr><td class="token-name">--space-5</td>  <td class="token-value">20px</td> <td><span class="space-bar" style="width:20px"></span></td></tr>
+            <tr><td class="token-name">--space-6</td>  <td class="token-value">24px</td> <td><span class="space-bar" style="width:24px"></span></td></tr>
+            <tr><td class="token-name">--space-8</td>  <td class="token-value">32px</td> <td><span class="space-bar" style="width:32px"></span></td></tr>
+            <tr><td class="token-name">--space-10</td> <td class="token-value">40px</td> <td><span class="space-bar" style="width:40px"></span></td></tr>
+            <tr><td class="token-name">--space-12</td> <td class="token-value">48px</td> <td><span class="space-bar" style="width:48px"></span></td></tr>
+          </tbody>
+        </table>
+
+        <r-divider></r-divider>
+
+        <!-- ── TYPOGRAPHY ── -->
+        <r-heading three>Typography</r-heading>
+        <r-text><p>Fira Code (monospace) is the only typeface. Font sizes use <code>rem</code> units with a
+        <code>14px</code> base. Use semantic tokens for size, weight, and line-height rather than raw values.</p></r-text>
+
+        <table class="token-table">
+          <thead><tr><th>Token</th><th>Value</th><th>Use for</th></tr></thead>
+          <tbody>
+            <tr><td class="token-name">--font-body</td>       <td class="token-value">"Fira Code", monospace</td>  <td class="token-desc">Base font stack — apply to <code>body</code> or component root</td></tr>
+            <tr><td class="token-name">--text-xs</td>         <td class="token-value">0.75rem (10.5px)</td>        <td class="token-desc">Labels, captions, nav labels, helper text</td></tr>
+            <tr><td class="token-name">--text-sm</td>         <td class="token-value">0.875rem (12.25px)</td>      <td class="token-desc">Secondary text, table cells, input values</td></tr>
+            <tr><td class="token-name">--text-base</td>       <td class="token-value">1rem (14px)</td>             <td class="token-desc">Default body copy, paragraph text</td></tr>
+            <tr><td class="token-name">--text-lg</td>         <td class="token-value">1.125rem (15.75px)</td>      <td class="token-desc">Slightly prominent body text or subheadings</td></tr>
+            <tr><td class="token-name">--text-xl</td>         <td class="token-value">1.25rem (17.5px)</td>        <td class="token-desc">Section headings (h4/h5)</td></tr>
+            <tr><td class="token-name">--text-2xl</td>        <td class="token-value">1.5rem (21px)</td>           <td class="token-desc">Page-level headings (h3)</td></tr>
+            <tr><td class="token-name">--text-3xl</td>        <td class="token-value">1.75rem (24.5px)</td>        <td class="token-desc">Major headings (h2)</td></tr>
+            <tr><td class="token-name">--font-weight-normal</td>   <td class="token-value">400</td>               <td class="token-desc">Default body weight</td></tr>
+            <tr><td class="token-name">--font-weight-medium</td>   <td class="token-value">500</td>               <td class="token-desc">Slightly emphasised labels</td></tr>
+            <tr><td class="token-name">--font-weight-semibold</td> <td class="token-value">600</td>               <td class="token-desc">Subheadings, button labels</td></tr>
+            <tr><td class="token-name">--font-weight-bold</td>     <td class="token-value">700</td>               <td class="token-desc">Headings, strong emphasis</td></tr>
+            <tr><td class="token-name">--line-height-tight</td>    <td class="token-value">1.25</td>              <td class="token-desc">Headings and single-line display text</td></tr>
+            <tr><td class="token-name">--line-height-base</td>     <td class="token-value">1.5</td>               <td class="token-desc">Body copy and multi-line text</td></tr>
+          </tbody>
+        </table>
+
+        <r-divider></r-divider>
+
+        <!-- ── BORDER RADIUS ── -->
+        <r-heading three>Border Radius</r-heading>
+        <r-text><p>A single global token. Components expose <code>--component-radius</code> on <code>:host</code>
+        that falls back to this value, allowing per-instance overrides. Some components intentionally deviate
+        (e.g. <code>r-badge</code> is always pill-shaped at <code>9999px</code>).</p></r-text>
+
+        <table class="token-table">
+          <thead><tr><th>Token</th><th>Value</th><th>Use for</th></tr></thead>
+          <tbody>
+            <tr><td class="token-name">--radius</td><td class="token-value">4px</td><td class="token-desc">Default corner radius for all components (buttons, cards, inputs, etc.)</td></tr>
+          </tbody>
+        </table>
+
+        <r-divider></r-divider>
+
+        <!-- ── TRANSITIONS ── -->
+        <r-heading three>Transitions</r-heading>
+        <r-text><p>Full shorthand values including easing. Use only with the <code>transition:</code> CSS property.
+        <strong>Never embed in <code>animation:</code> shorthand</strong> — the easing value will conflict and the
+        browser will silently drop the entire rule.</p></r-text>
+
+        <div class="note">
+          ⚠ <strong>Animation pitfall:</strong> <code>--transition-base</code> expands to <code>250ms ease</code>.
+          Writing <code>animation: spin var(--transition-base) linear infinite</code> produces two easing values
+          and the browser drops the rule. Use a bare duration token instead:
+          <code>--my-duration: 250ms</code> then <code>animation: spin var(--my-duration) linear infinite</code>.
+        </div>
+
+        <table class="token-table">
+          <thead><tr><th>Token</th><th>Value</th><th>Use for</th></tr></thead>
+          <tbody>
+            <tr><td class="token-name">--transition-fast</td> <td class="token-value">150ms ease</td> <td class="token-desc">Hover states, focus rings, quick micro-interactions</td></tr>
+            <tr><td class="token-name">--transition-base</td> <td class="token-value">250ms ease</td> <td class="token-desc">Most UI transitions — expanding panels, colour shifts</td></tr>
+            <tr><td class="token-name">--transition-slow</td> <td class="token-value">400ms ease</td> <td class="token-desc">Larger motions — modals, drawers, page transitions</td></tr>
+          </tbody>
+        </table>
+
+        <r-divider></r-divider>
+
+        <!-- ── SHADOWS ── -->
+        <r-heading three>Shadows</r-heading>
+        <r-text><p>Use to convey elevation. Reserve larger shadows for elements that float above content
+        (dropdowns, modals, tooltips). Avoid on flat/inline elements.</p></r-text>
+
+        <table class="token-table">
+          <thead><tr><th>Token</th><th>Value</th><th>Use for</th><th>Preview</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="token-name">--shadow-sm</td>
+              <td class="token-value">0 1px 2px rgba(0,0,0,.12)</td>
+              <td class="token-desc">Subtle lift — cards, inputs, badges</td>
+              <td><span class="shadow-box" style="box-shadow: 0 1px 2px rgba(0,0,0,.12)"></span></td>
+            </tr>
+            <tr>
+              <td class="token-name">--shadow-base</td>
+              <td class="token-value">0 2px 4px rgba(0,0,0,.16)</td>
+              <td class="token-desc">Default elevation — dropdowns, popovers</td>
+              <td><span class="shadow-box" style="box-shadow: 0 2px 4px rgba(0,0,0,.16)"></span></td>
+            </tr>
+            <tr>
+              <td class="token-name">--shadow-lg</td>
+              <td class="token-value">0 4px 8px rgba(0,0,0,.20)</td>
+              <td class="token-desc">High elevation — modals, overlays, toasts</td>
+              <td><span class="shadow-box" style="box-shadow: 0 4px 8px rgba(0,0,0,.20)"></span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <r-divider></r-divider>
+
+        <!-- ── FOCUS ── -->
+        <r-heading three>Focus</r-heading>
+        <r-text><p>Used to indicate keyboard focus. Always use <code>--focus-ring</code> as the
+        <code>box-shadow</code> value on interactive elements — never roll a custom focus style.</p></r-text>
+
+        <table class="token-table">
+          <thead><tr><th>Token</th><th>Value</th><th>Use for</th></tr></thead>
+          <tbody>
+            <tr><td class="token-name">--color-focus</td> <td class="token-value">var(--color-primary-blue)</td>    <td class="token-desc">Focus indicator colour — resolves to the Gruvbox blue</td></tr>
+            <tr><td class="token-name">--focus-ring</td>  <td class="token-value">0 0 0 2px var(--color-focus)</td> <td class="token-desc">Apply as <code>box-shadow</code> on <code>:focus-visible</code></td></tr>
+          </tbody>
+        </table>
+
+        <r-divider></r-divider>
+
+        <!-- ── Z-INDEX ── -->
+        <r-heading three>Z-index Scale</r-heading>
+        <r-text><p>Layering scale for floating elements. Use the named token that matches the role of the
+        element — don't use arbitrary numbers.</p></r-text>
+
+        <table class="token-table">
+          <thead><tr><th>Token</th><th>Value</th><th>Use for</th></tr></thead>
+          <tbody>
+            <tr><td class="token-name">--z-dropdown</td> <td class="token-value">100</td> <td class="token-desc">Dropdowns, select menus, autocomplete lists</td></tr>
+            <tr><td class="token-name">--z-modal</td>    <td class="token-value">200</td> <td class="token-desc">Modal dialogs and their backdrops</td></tr>
+            <tr><td class="token-name">--z-tooltip</td>  <td class="token-value">300</td> <td class="token-desc">Tooltips — always above modals</td></tr>
+          </tbody>
+        </table>
+
+        <r-divider></r-divider>
+
+        <!-- ── SEMANTIC COLORS ── -->
+        <r-heading three>Semantic Colors</r-heading>
+        <r-text><p>Prefer semantic tokens over raw palette values in component styles. Semantic tokens
+        automatically resolve to the correct light or dark variant.</p></r-text>
+
+        <r-heading>Background</r-heading>
+        <table class="token-table">
+          <thead><tr><th>Token</th><th>Preview</th><th>Use for</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="token-name">--color-bg-primary</td>
+              <td><div class="swatch-row"><span class="swatch" style="background:var(--color-bg-primary)"></span></div></td>
+              <td class="token-desc">Page/app background, base surface</td>
+            </tr>
+            <tr>
+              <td class="token-name">--color-bg-secondary</td>
+              <td><div class="swatch-row"><span class="swatch" style="background:var(--color-bg-secondary)"></span></div></td>
+              <td class="token-desc">Elevated surface — cards, sidebars, panels</td>
+            </tr>
+            <tr>
+              <td class="token-name">--color-bg-hover</td>
+              <td><div class="swatch-row"><span class="swatch" style="background:var(--color-bg-hover)"></span></div></td>
+              <td class="token-desc">Hover state background on interactive rows/buttons</td>
+            </tr>
+            <tr>
+              <td class="token-name">--color-bg-active</td>
+              <td><div class="swatch-row"><span class="swatch" style="background:var(--color-bg-active)"></span></div></td>
+              <td class="token-desc">Active / selected state background (nav items, tabs)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <r-heading>Foreground</r-heading>
+        <table class="token-table">
+          <thead><tr><th>Token</th><th>Preview</th><th>Use for</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="token-name">--color-fg-primary</td>
+              <td><div class="swatch-row"><span class="swatch" style="background:var(--color-fg-primary)"></span></div></td>
+              <td class="token-desc">Primary text, headings, labels</td>
+            </tr>
+            <tr>
+              <td class="token-name">--color-fg-secondary</td>
+              <td><div class="swatch-row"><span class="swatch" style="background:var(--color-fg-secondary)"></span></div></td>
+              <td class="token-desc">Supporting text, descriptions, secondary labels</td>
+            </tr>
+            <tr>
+              <td class="token-name">--color-fg-muted</td>
+              <td><div class="swatch-row"><span class="swatch" style="background:var(--color-fg-muted)"></span></div></td>
+              <td class="token-desc">Placeholder text, disabled states, fine print</td>
+            </tr>
+            <tr>
+              <td class="token-name">--color-fg-dark</td>
+              <td><div class="swatch-row"><span class="swatch" style="background:var(--color-fg-dark)"></span></div></td>
+              <td class="token-desc">High-contrast text on light surfaces only</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <r-heading>Status</r-heading>
+        <table class="token-table">
+          <thead><tr><th>Token</th><th>Preview</th><th>Use for</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="token-name">--color-success</td>
+              <td><div class="swatch-row"><span class="swatch" style="background:var(--color-success)"></span></div></td>
+              <td class="token-desc">Positive outcomes — success alerts, valid states, confirmed actions</td>
+            </tr>
+            <tr>
+              <td class="token-name">--color-warning</td>
+              <td><div class="swatch-row"><span class="swatch" style="background:var(--color-warning)"></span></div></td>
+              <td class="token-desc">Caution — warning alerts, degraded states, pending</td>
+            </tr>
+            <tr>
+              <td class="token-name">--color-danger</td>
+              <td><div class="swatch-row"><span class="swatch" style="background:var(--color-danger)"></span></div></td>
+              <td class="token-desc">Destructive actions, errors, critical alerts</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <r-heading>Divider</r-heading>
+        <table class="token-table">
+          <thead><tr><th>Token</th><th>Preview</th><th>Use for</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="token-name">--color-divider</td>
+              <td><div class="swatch-row"><span class="swatch" style="background:var(--color-divider)"></span></div></td>
+              <td class="token-desc">Borders, separators, table rules, <code>r-divider</code></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <r-divider></r-divider>
+
+        <!-- ── PRIMARY PALETTE ── -->
+        <r-heading three>Primary Palette</r-heading>
+        <r-text><p>Raw Gruvbox accent colours. Prefer semantic tokens above for most component work.
+        Use these directly only when you need a specific named colour (e.g. the active nav link
+        uses <code>--color-primary-yellow</code> intentionally).</p></r-text>
+
+        <table class="token-table">
+          <thead><tr><th>Token</th><th>Light</th><th>Dark</th></tr></thead>
+          <tbody id="primary-palette">
+            <tr>
+              <td class="token-name">--color-primary-red</td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#cc241d"></span><span class="token-value">#cc241d</span></div></td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#cc241d"></span><span class="token-value">#cc241d</span></div></td>
+            </tr>
+            <tr>
+              <td class="token-name">--color-primary-green</td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#98971a"></span><span class="token-value">#98971a</span></div></td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#98971a"></span><span class="token-value">#98971a</span></div></td>
+            </tr>
+            <tr>
+              <td class="token-name">--color-primary-yellow</td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#d79921"></span><span class="token-value">#d79921</span></div></td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#d79921"></span><span class="token-value">#d79921</span></div></td>
+            </tr>
+            <tr>
+              <td class="token-name">--color-primary-blue</td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#458588"></span><span class="token-value">#458588</span></div></td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#458588"></span><span class="token-value">#458588</span></div></td>
+            </tr>
+            <tr>
+              <td class="token-name">--color-primary-purple</td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#b16286"></span><span class="token-value">#b16286</span></div></td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#b16286"></span><span class="token-value">#b16286</span></div></td>
+            </tr>
+            <tr>
+              <td class="token-name">--color-primary-orange</td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#d65d0e"></span><span class="token-value">#d65d0e</span></div></td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#d65d0e"></span><span class="token-value">#d65d0e</span></div></td>
+            </tr>
+            <tr>
+              <td class="token-name">--color-primary-aqua</td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#689d6a"></span><span class="token-value">#689d6a</span></div></td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#689d6a"></span><span class="token-value">#689d6a</span></div></td>
+            </tr>
+            <tr>
+              <td class="token-name">--color-primary-gray</td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#7c6f64"></span><span class="token-value">#7c6f64</span></div></td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#a89984"></span><span class="token-value">#a89984</span></div></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <r-divider></r-divider>
+
+        <!-- ── SECONDARY PALETTE ── -->
+        <r-heading three>Secondary Palette</r-heading>
+        <r-text><p>Darker (light mode) / brighter (dark mode) variants of each accent. Used for status
+        semantic tokens and high-contrast accent needs.</p></r-text>
+
+        <table class="token-table">
+          <thead><tr><th>Token</th><th>Light</th><th>Dark</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="token-name">--color-secondary-red</td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#9d0006"></span><span class="token-value">#9d0006</span></div></td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#fb4934"></span><span class="token-value">#fb4934</span></div></td>
+            </tr>
+            <tr>
+              <td class="token-name">--color-secondary-green</td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#79740e"></span><span class="token-value">#79740e</span></div></td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#b8bb26"></span><span class="token-value">#b8bb26</span></div></td>
+            </tr>
+            <tr>
+              <td class="token-name">--color-secondary-yellow</td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#b57614"></span><span class="token-value">#b57614</span></div></td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#fabd2f"></span><span class="token-value">#fabd2f</span></div></td>
+            </tr>
+            <tr>
+              <td class="token-name">--color-secondary-blue</td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#076678"></span><span class="token-value">#076678</span></div></td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#83a598"></span><span class="token-value">#83a598</span></div></td>
+            </tr>
+            <tr>
+              <td class="token-name">--color-secondary-purple</td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#8f3f71"></span><span class="token-value">#8f3f71</span></div></td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#d3869b"></span><span class="token-value">#d3869b</span></div></td>
+            </tr>
+            <tr>
+              <td class="token-name">--color-secondary-orange</td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#af3a03"></span><span class="token-value">#af3a03</span></div></td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#fe8019"></span><span class="token-value">#fe8019</span></div></td>
+            </tr>
+            <tr>
+              <td class="token-name">--color-secondary-aqua</td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#427b58"></span><span class="token-value">#427b58</span></div></td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#8ec07c"></span><span class="token-value">#8ec07c</span></div></td>
+            </tr>
+            <tr>
+              <td class="token-name">--color-secondary-gray</td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#3c3836"></span><span class="token-value">#3c3836</span></div></td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#3c3836"></span><span class="token-value">#3c3836</span></div></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <r-divider></r-divider>
+
+        <!-- ── NEUTRAL GRAYS ── -->
+        <r-heading three>Neutral Grays</r-heading>
+        <r-text><p>A 9-step neutral scale running light → dark in light mode (inverted in dark mode).
+        Prefer semantic background/foreground tokens for most component work. Use the raw scale when
+        you need a precise step that has no semantic equivalent.</p></r-text>
+
+        <table class="token-table">
+          <thead><tr><th>Token</th><th>Light</th><th>Dark</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="token-name">--color-gray-100</td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#ebdbb2;border-color:rgba(0,0,0,.2)"></span><span class="token-value">#ebdbb2</span></div></td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#282828"></span><span class="token-value">#282828</span></div></td>
+            </tr>
+            <tr>
+              <td class="token-name">--color-gray-200</td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#d5c4a1"></span><span class="token-value">#d5c4a1</span></div></td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#3c3836"></span><span class="token-value">#3c3836</span></div></td>
+            </tr>
+            <tr>
+              <td class="token-name">--color-gray-300</td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#bdae93"></span><span class="token-value">#bdae93</span></div></td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#504945"></span><span class="token-value">#504945</span></div></td>
+            </tr>
+            <tr>
+              <td class="token-name">--color-gray-400</td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#a89984"></span><span class="token-value">#a89984</span></div></td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#665c54"></span><span class="token-value">#665c54</span></div></td>
+            </tr>
+            <tr>
+              <td class="token-name">--color-gray-500</td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#928374"></span><span class="token-value">#928374</span></div></td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#7c6f64"></span><span class="token-value">#7c6f64</span></div></td>
+            </tr>
+            <tr>
+              <td class="token-name">--color-gray-600</td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#7c6f64"></span><span class="token-value">#7c6f64</span></div></td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#928374"></span><span class="token-value">#928374</span></div></td>
+            </tr>
+            <tr>
+              <td class="token-name">--color-gray-700</td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#665c54"></span><span class="token-value">#665c54</span></div></td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#a89984"></span><span class="token-value">#a89984</span></div></td>
+            </tr>
+            <tr>
+              <td class="token-name">--color-gray-800</td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#504945"></span><span class="token-value">#504945</span></div></td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#bdae93"></span><span class="token-value">#bdae93</span></div></td>
+            </tr>
+            <tr>
+              <td class="token-name">--color-gray-900</td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#3c3836"></span><span class="token-value">#3c3836</span></div></td>
+              <td><div class="swatch-row"><span class="swatch" style="background:#d5c4a1"></span><span class="token-value">#d5c4a1</span></div></td>
+            </tr>
+          </tbody>
+        </table>
+
+      </r-card>
+    </div>
+  </body>
+</html>

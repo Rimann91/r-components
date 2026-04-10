@@ -23,3 +23,4 @@ import '../src/layout/stack.js';
 import '../src/layout/cluster.js';
 import '../src/layout/grid.js';
 import '../src/layout/container.js';
+import '../src/layout/split.js';
