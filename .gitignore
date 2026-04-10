@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.DS_Store
+*.local
+
+# .ai/ is intentionally committed — it's project knowledge, not secrets.
+# Never put API keys, tokens, or credentials in .ai/ files.

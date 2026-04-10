@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script type="module" src="./doc.js"></script>
+    <link rel="stylesheet" href="../styles/gruvbox_dark_colors.css">
+    <link rel="stylesheet" href="../shared.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <r-card title="r-components">
+        <r-text>
+          <p>A zero-dependency, framework-free web component primitive library built with the
+          <r-text emphasized>Gruvbox</r-text> colour theme and <r-text emphasized>Fira Code</r-text> monospace font.</p>
+          <p>Select a component from the sidebar to view its documentation and live demos.</p>
+        </r-text>
+
+        <r-divider></r-divider>
+
+        <r-heading three>Primitives</r-heading>
+        <r-text><p>Single-responsibility components: buttons, inputs, feedback, overlays.</p></r-text>
+
+        <r-heading three>Layout</r-heading>
+        <r-text><p>Structural wrappers: stack, cluster, grid, container.</p></r-text>
+
+        <r-divider></r-divider>
+
+        <r-heading three>Design Tokens</r-heading>
+        <r-text>
+          <p>All components are built on a shared token foundation in
+          <r-text emphasized>styles/gruvbox_dark_colors.css</r-text>:</p>
+          <ul>
+            <li>Colour palette (Gruvbox dark/light)</li>
+            <li>Spacing scale — <r-text emphasized>--space-1</r-text> through <r-text emphasized>--space-12</r-text></li>
+            <li>Typography scale — <r-text emphasized>--text-xs</r-text> through <r-text emphasized>--text-4xl</r-text></li>
+            <li>Border radius — <r-text emphasized>--radius</r-text></li>
+            <li>Shadows — <r-text emphasized>--shadow-sm</r-text> / <r-text emphasized>--shadow-md</r-text> / <r-text emphasized>--shadow-lg</r-text></li>
+            <li>Transitions — <r-text emphasized>--transition-fast</r-text> / <r-text emphasized>--transition-base</r-text> / <r-text emphasized>--transition-slow</r-text></li>
+          </ul>
+          <p>Every component exposes <r-text emphasized>--component-*</r-text> CSS custom properties on
+          <r-text emphasized>:host</r-text> for per-instance overrides without piercing the shadow DOM.</p>
+        </r-text>
+      </r-card>
+    </div>
+  </body>
+</html>

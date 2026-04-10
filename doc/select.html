@@ -1,0 +1,88 @@
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script type="module" src="./doc.js"></script>
+    <link rel="stylesheet" href="../styles/gruvbox_dark_colors.css">
+    <link rel="stylesheet" href="../shared.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+    <style>
+      .demo { display: flex; flex-direction: column; gap: 12px; max-width: 320px; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      
+
+      <r-card title="r-select">
+
+        <r-heading three>Summary</r-heading>
+        <r-text>
+          <p>A styled native select wrapper with label, error, and disabled states.
+          Place <r-text emphasized>&lt;option&gt;</r-text> and <r-text emphasized>&lt;optgroup&gt;</r-text>
+          elements directly inside <r-text emphasized>r-select</r-text>.</p>
+          <pre><code>
+            <span>&lt;r-select label="Fruit"&gt;</span>
+            <span>  &lt;option value="apple"&gt;Apple&lt;/option&gt;</span>
+            <span>  &lt;option value="pear"&gt;Pear&lt;/option&gt;</span>
+            <span>&lt;/r-select&gt;</span>
+          </code></pre>
+        </r-text>
+
+        <r-divider></r-divider>
+
+        <r-heading three>Demo</r-heading>
+        <div class="demo">
+          <r-select label="Default">
+            <option value="">Choose one…</option>
+            <option value="a">Option A</option>
+            <option value="b">Option B</option>
+            <option value="c">Option C</option>
+          </r-select>
+
+          <r-select label="Error state — select a value to clear" id="error-select" error error-message="Please select a value">
+            <option value="">Choose one…</option>
+            <option value="a">Option A</option>
+          </r-select>
+
+          <script type="module">
+            document.getElementById('error-select').addEventListener('change', e => {
+              if (e.detail.value) e.target.removeAttribute('error');
+            });
+          </script>
+
+          <r-select label="Disabled" disabled>
+            <option value="a">Cannot change</option>
+          </r-select>
+        </div>
+
+        <r-divider></r-divider>
+
+        <r-heading three>Attributes</r-heading>
+        <r-text>
+          <ul>
+            <li><r-text emphasized>label</r-text> — text shown above the select</li>
+            <li><r-text emphasized>disabled</r-text> — disables the select</li>
+            <li><r-text emphasized>error</r-text> — activates error styles</li>
+            <li><r-text emphasized>error-message</r-text> — error text shown below when error is set</li>
+          </ul>
+        </r-text>
+
+        <r-heading three>CSS Variables</r-heading>
+        <r-text>
+          <div><r-text emphasized>--select-font-size</r-text>: var(--text-sm)</div>
+          <div><r-text emphasized>--select-radius</r-text>: var(--radius)</div>
+          <div><r-text emphasized>--select-padding</r-text>: var(--space-1) var(--space-2)</div>
+          <div><r-text emphasized>--select-bg</r-text>: var(--color-bg-primary)</div>
+          <div><r-text emphasized>--select-color</r-text>: var(--color-fg-primary)</div>
+          <div><r-text emphasized>--select-border-color</r-text>: var(--color-divider)</div>
+          <div><r-text emphasized>--select-focus-ring</r-text>: var(--focus-ring)</div>
+          <div><r-text emphasized>--select-error-color</r-text>: var(--color-primary-red)</div>
+        </r-text>
+
+      </r-card>
+    </div>
+  </body>
+</html>

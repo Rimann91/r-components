@@ -1,0 +1,95 @@
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script type="module" src="./doc.js"></script>
+    <link rel="stylesheet" href="../styles/gruvbox_dark_colors.css">
+    <link rel="stylesheet" href="../shared.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+    <style>
+      .outline {
+        outline: 2px dashed var(--color-primary-blue);
+        outline-offset: -2px;
+      }
+      .fill {
+        background: var(--color-bg-secondary);
+        border: 1px solid var(--color-divider);
+        border-radius: var(--radius);
+        padding: var(--space-3) var(--space-4);
+        color: var(--color-fg-secondary);
+        font-family: var(--font-mono);
+        font-size: var(--text-sm);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      
+
+      <r-card title="r-container">
+
+        <r-heading three>Summary</r-heading>
+        <r-text>
+          <p>Max-width centering wrapper with auto margins and horizontal padding. Use it to constrain
+          content width on wide screens. The dashed outline below shows the container boundary.</p>
+        </r-text>
+
+        <r-divider></r-divider>
+
+        <r-heading three>size="sm" (640px)</r-heading>
+        <r-container size="sm" class="outline">
+          <div class="fill">Content constrained to 640px</div>
+        </r-container>
+
+        <r-divider></r-divider>
+
+        <r-heading three>size="md" (768px)</r-heading>
+        <r-container size="md" class="outline">
+          <div class="fill">Content constrained to 768px</div>
+        </r-container>
+
+        <r-divider></r-divider>
+
+        <r-heading three>size="lg" (1024px) — default</r-heading>
+        <r-container size="lg" class="outline">
+          <div class="fill">Content constrained to 1024px</div>
+        </r-container>
+
+        <r-divider></r-divider>
+
+        <r-heading three>size="xl" (1280px)</r-heading>
+        <r-container size="xl" class="outline">
+          <div class="fill">Content constrained to 1280px</div>
+        </r-container>
+
+        <r-divider></r-divider>
+
+        <r-heading three>size="full" (no max-width)</r-heading>
+        <r-container size="full" class="outline">
+          <div class="fill">Full width — no max-width applied, just horizontal padding</div>
+        </r-container>
+
+        <r-divider></r-divider>
+
+        <r-heading three>Composed with r-stack</r-heading>
+        <r-container size="sm" class="outline">
+          <r-stack gap="3">
+            <div class="fill">First item</div>
+            <div class="fill">Second item</div>
+            <div class="fill">Third item</div>
+          </r-stack>
+        </r-container>
+
+        <r-divider></r-divider>
+
+        <r-heading three>Attributes</r-heading>
+        <r-text>
+          <div><r-text emphasized>size</r-text>: <code>sm</code> (640px) | <code>md</code> (768px) | <code>lg</code> (1024px) | <code>xl</code> (1280px) | <code>2xl</code> (1536px) | <code>full</code>. Default: <code>lg</code></div>
+        </r-text>
+
+      </r-card>
+    </div>
+  </body>
+</html>

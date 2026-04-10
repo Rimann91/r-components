@@ -1,0 +1,82 @@
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script type="module" src="./doc.js"></script>
+    <link rel="stylesheet" href="../styles/gruvbox_dark_colors.css">
+    <link rel="stylesheet" href="../shared.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+    <style>
+      .demo { display: flex; flex-direction: column; gap: 8px; }
+      .group { display: flex; flex-direction: column; gap: 6px; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      
+
+      <r-card title="r-radio">
+
+        <r-heading three>Summary</r-heading>
+        <r-text>
+          <p>A styled radio button with label. Group radios using a shared <r-text emphasized>name</r-text> attribute.
+          Fires a <r-text emphasized>change</r-text> event on selection.</p>
+          <pre><code>
+            <span>&lt;r-radio name="fruit" value="apple"&gt;Apple&lt;/r-radio&gt;</span>
+            <span>&lt;r-radio name="fruit" value="pear"&gt;Pear&lt;/r-radio&gt;</span>
+          </code></pre>
+        </r-text>
+
+        <r-divider></r-divider>
+
+        <r-heading three>Demo</r-heading>
+        <div class="demo">
+          <r-heading four>Group (shared name)</r-heading>
+          <div class="group">
+            <r-radio name="demo" value="one" checked>Option one</r-radio>
+            <r-radio name="demo" value="two">Option two</r-radio>
+            <r-radio name="demo" value="three">Option three</r-radio>
+          </div>
+
+          <r-heading four>Disabled</r-heading>
+          <div class="group">
+            <r-radio disabled>Disabled unchecked</r-radio>
+            <r-radio checked disabled>Disabled checked</r-radio>
+          </div>
+        </div>
+
+        <r-divider></r-divider>
+
+        <r-heading three>Attributes</r-heading>
+        <r-text>
+          <ul>
+            <li><r-text emphasized>checked</r-text> — sets initial checked state</li>
+            <li><r-text emphasized>disabled</r-text> — disables interaction</li>
+            <li><r-text emphasized>name</r-text> — groups radio buttons together</li>
+            <li><r-text emphasized>value</r-text> — value passed in the change event</li>
+          </ul>
+        </r-text>
+
+        <r-heading three>Events</r-heading>
+        <r-text>
+          <ul>
+            <li><r-text emphasized>change</r-text> — fires on selection with <r-text emphasized>detail: \{ checked: boolean, value: string \}</r-text></li>
+          </ul>
+        </r-text>
+
+        <r-heading three>CSS Variables</r-heading>
+        <r-text>
+          <div><r-text emphasized>--radio-size</r-text>: 16px</div>
+          <div><r-text emphasized>--radio-color</r-text>: var(--color-primary-blue) — checked fill</div>
+          <div><r-text emphasized>--radio-bg</r-text>: var(--color-bg-primary)</div>
+          <div><r-text emphasized>--radio-border-color</r-text>: var(--color-divider)</div>
+          <div><r-text emphasized>--radio-focus-ring</r-text>: var(--focus-ring)</div>
+          <div><r-text emphasized>--radio-gap</r-text>: var(--space-2)</div>
+        </r-text>
+
+      </r-card>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script type="module" src="./doc.js"></script>
+    <link rel="stylesheet" href="../styles/gruvbox_dark_colors.css">
+    <link rel="stylesheet" href="../shared.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+    <style>
+      .demo { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      
+
+      <r-card title="r-spinner">
+
+        <r-heading three>Summary</r-heading>
+        <r-text>
+          <p>A CSS-only loading indicator. No JS, no images — just a rotating border.</p>
+          <pre><code>
+            <span>&lt;r-spinner&gt;&lt;/r-spinner&gt;</span>
+            <span>&lt;r-spinner size="lg"&gt;&lt;/r-spinner&gt;</span>
+          </code></pre>
+        </r-text>
+
+        <r-divider></r-divider>
+
+        <r-heading three>Sizes</r-heading>
+        <div class="demo">
+          <r-text muted>sm</r-text><r-spinner size="sm"></r-spinner>
+          <r-text muted>base</r-text><r-spinner></r-spinner>
+          <r-text muted>lg</r-text><r-spinner size="lg"></r-spinner>
+        </div>
+
+        <r-divider></r-divider>
+
+        <r-heading three>Attributes</r-heading>
+        <r-text>
+          <ul>
+            <li><r-text emphasized>size="sm"</r-text> — 14px</li>
+            <li><r-text emphasized>size="lg"</r-text> — 32px</li>
+          </ul>
+        </r-text>
+
+        <r-heading three>CSS Variables</r-heading>
+        <r-text>
+          <div><r-text emphasized>--spinner-size</r-text>: 20px — diameter</div>
+          <div><r-text emphasized>--spinner-thickness</r-text>: 2px — border width</div>
+          <div><r-text emphasized>--spinner-color</r-text>: var(--color-primary-blue) — active arc color</div>
+          <div><r-text emphasized>--spinner-track</r-text>: var(--color-gray-300) — background ring color</div>
+          <div><r-text emphasized>--spinner-duration</r-text>: 800ms — rotation duration</div>
+        </r-text>
+
+      </r-card>
+    </div>
+  </body>
+</html>

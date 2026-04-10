@@ -1,0 +1,88 @@
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script type="module" src="./doc.js"></script>
+    <link rel="stylesheet" href="../styles/gruvbox_dark_colors.css">
+    <link rel="stylesheet" href="../shared.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+    <style>
+      .demo { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-start; }
+      .inline-demo { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      
+
+      <r-card title="r-tooltip">
+
+        <r-heading three>Summary</r-heading>
+        <r-text>
+          <p>Wraps any element and shows a tooltip on hover or focus. Pure CSS — no JS measurement.
+          Position defaults to <r-text emphasized>top</r-text>.</p>
+          <pre><code>
+            <span>&lt;r-tooltip content="Helpful text"&gt;</span>
+            <span>  &lt;r-button primary&gt;Hover me&lt;/r-button&gt;</span>
+            <span>&lt;/r-tooltip&gt;</span>
+          </code></pre>
+        </r-text>
+
+        <r-divider></r-divider>
+
+        <r-heading three>Positions</r-heading>
+        <div class="demo" style="padding: 48px 24px;">
+          <r-tooltip content="Top (default)">
+            <r-button tertiary>Top</r-button>
+          </r-tooltip>
+          <r-tooltip content="Bottom tooltip" position="bottom">
+            <r-button tertiary>Bottom</r-button>
+          </r-tooltip>
+          <r-tooltip content="Left tooltip" position="left">
+            <r-button tertiary>Left</r-button>
+          </r-tooltip>
+          <r-tooltip content="Right tooltip" position="right">
+            <r-button tertiary>Right</r-button>
+          </r-tooltip>
+        </div>
+
+        <r-divider></r-divider>
+
+        <r-heading three>With other components</r-heading>
+        <div class="inline-demo">
+          <r-tooltip content="Download report as CSV">
+            <r-button primary>Download</r-button>
+          </r-tooltip>
+          <r-tooltip content="This feature is in beta" position="right">
+            <r-badge primary>Beta</r-badge>
+          </r-tooltip>
+        </div>
+
+        <r-divider></r-divider>
+
+        <r-heading three>Attributes</r-heading>
+        <r-text>
+          <ul>
+            <li><r-text emphasized>content</r-text> — tooltip text</li>
+            <li><r-text emphasized>position</r-text> — <r-text emphasized>top</r-text> (default) | <r-text emphasized>bottom</r-text> | <r-text emphasized>left</r-text> | <r-text emphasized>right</r-text></li>
+          </ul>
+        </r-text>
+
+        <r-heading three>CSS Variables</r-heading>
+        <r-text>
+          <div><r-text emphasized>--tooltip-font-size</r-text>: var(--text-xs)</div>
+          <div><r-text emphasized>--tooltip-padding</r-text>: var(--space-1) var(--space-2)</div>
+          <div><r-text emphasized>--tooltip-radius</r-text>: var(--radius)</div>
+          <div><r-text emphasized>--tooltip-bg</r-text>: var(--color-fg-dark) — dark surface</div>
+          <div><r-text emphasized>--tooltip-color</r-text>: var(--color-bg-primary) — light text</div>
+          <div><r-text emphasized>--tooltip-max-width</r-text>: 240px</div>
+          <div><r-text emphasized>--tooltip-transition</r-text>: var(--transition-fast)</div>
+          <div><r-text emphasized>--tooltip-gap</r-text>: var(--space-1) — distance from trigger</div>
+        </r-text>
+
+      </r-card>
+    </div>
+  </body>
+</html>

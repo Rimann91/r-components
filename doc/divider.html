@@ -1,0 +1,71 @@
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script type="module" src="./doc.js"></script>
+    <link rel="stylesheet" href="../styles/gruvbox_dark_colors.css">
+    <link rel="stylesheet" href="../shared.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+    <style>
+      .vertical-demo {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        height: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      
+
+      <r-card title="r-divider">
+
+        <r-heading three>Summary</r-heading>
+        <r-text>
+          <p>A simple visual separator. Renders horizontally by default;
+          add the <r-text emphasized>vertical</r-text> attribute for a vertical line.</p>
+          <pre><code>
+            <span>&lt;r-divider&gt;&lt;/r-divider&gt;</span>
+            <span>&lt;r-divider vertical&gt;&lt;/r-divider&gt;</span>
+          </code></pre>
+        </r-text>
+
+        <r-divider></r-divider>
+
+        <r-heading three>Horizontal (default)</r-heading>
+        <r-text>Above the divider</r-text>
+        <r-divider></r-divider>
+        <r-text>Below the divider</r-text>
+
+        <r-divider></r-divider>
+
+        <r-heading three>Vertical</r-heading>
+        <div class="vertical-demo">
+          <r-text>Left</r-text>
+          <r-divider vertical></r-divider>
+          <r-text>Right</r-text>
+        </div>
+
+        <r-divider></r-divider>
+
+        <r-heading three>Attributes</r-heading>
+        <r-text>
+          <ul>
+            <li><r-text emphasized>vertical</r-text> — renders as a vertical line (height: 100% of parent)</li>
+          </ul>
+        </r-text>
+
+        <r-heading three>CSS Variables</r-heading>
+        <r-text>
+          <div><r-text emphasized>--divider-color</r-text>: var(--color-divider)</div>
+          <div><r-text emphasized>--divider-thickness</r-text>: 1px</div>
+          <div><r-text emphasized>--divider-margin</r-text>: var(--space-2) 0 — applies to horizontal only</div>
+        </r-text>
+
+      </r-card>
+    </div>
+  </body>
+</html>

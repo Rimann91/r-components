@@ -1,0 +1,120 @@
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script type="module" src="./doc.js"></script>
+    <link rel="stylesheet" href="../styles/gruvbox_dark_colors.css">
+    <link rel="stylesheet" href="../shared.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+    <style>
+      .demo { display: flex; flex-wrap: wrap; gap: 8px; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      
+
+      <r-card title="r-modal">
+
+        <r-heading three>Summary</r-heading>
+        <r-text>
+          <p>A dialog overlay built on the native <r-text emphasized>&lt;dialog&gt;</r-text> element.
+          Closes on ✕ button, backdrop click, or Escape key. Supports a
+          <r-text emphasized>footer</r-text> slot for action buttons.</p>
+          <pre><code>
+            <span>&lt;r-modal id="my-modal" title="Confirm"&gt;</span>
+            <span>  Are you sure?</span>
+            <span>  &lt;div slot="footer"&gt;</span>
+            <span>    &lt;r-button danger&gt;Delete&lt;/r-button&gt;</span>
+            <span>  &lt;/div&gt;</span>
+            <span>&lt;/r-modal&gt;</span>
+            <span>&lt;r-button primary onclick="document.getElementById('my-modal').open()"&gt;Open&lt;/r-button&gt;</span>
+          </code></pre>
+        </r-text>
+
+        <r-divider></r-divider>
+
+        <r-heading three>Demo</r-heading>
+        <div class="demo">
+          <r-button primary id="open-basic">Basic modal</r-button>
+          <r-button secondary id="open-footer">Modal with footer</r-button>
+        </div>
+
+        <r-modal id="modal-basic" title="Basic Modal">
+          <r-text>This is a basic modal. Close it with the ✕ button, click the backdrop, or press Escape.</r-text>
+        </r-modal>
+
+        <r-modal id="modal-footer" title="Confirm Action">
+          <r-text>Are you sure you want to delete this item? This action cannot be undone.</r-text>
+          <div slot="footer" style="display:flex; gap:8px; justify-content:flex-end;">
+            <r-button tertiary id="cancel-btn">Cancel</r-button>
+            <r-button danger id="confirm-btn">Delete</r-button>
+          </div>
+        </r-modal>
+
+        <script type="module">
+          document.getElementById('open-basic').addEventListener('click', () =>
+            document.getElementById('modal-basic').open());
+          document.getElementById('open-footer').addEventListener('click', () =>
+            document.getElementById('modal-footer').open());
+          document.getElementById('cancel-btn').addEventListener('click', () =>
+            document.getElementById('modal-footer').close());
+          document.getElementById('confirm-btn').addEventListener('click', () =>
+            document.getElementById('modal-footer').close());
+        </script>
+
+        <r-divider></r-divider>
+
+        <r-heading three>Attributes</r-heading>
+        <r-text>
+          <ul>
+            <li><r-text emphasized>open</r-text> — presence shows the modal</li>
+            <li><r-text emphasized>title</r-text> — text in the modal header</li>
+          </ul>
+        </r-text>
+
+        <r-heading three>Slots</r-heading>
+        <r-text>
+          <ul>
+            <li><r-text emphasized>default</r-text> — modal body content</li>
+            <li><r-text emphasized>footer</r-text> — action buttons shown below a divider</li>
+          </ul>
+        </r-text>
+
+        <r-heading three>Methods</r-heading>
+        <r-text>
+          <ul>
+            <li><r-text emphasized>open()</r-text> — opens the modal, fires open event</li>
+            <li><r-text emphasized>close()</r-text> — closes the modal, fires close event</li>
+          </ul>
+        </r-text>
+
+        <r-heading three>Events</r-heading>
+        <r-text>
+          <ul>
+            <li><r-text emphasized>open</r-text> — fires when modal opens</li>
+            <li><r-text emphasized>close</r-text> — fires when modal closes (any method)</li>
+          </ul>
+        </r-text>
+
+        <r-heading three>CSS Variables</r-heading>
+        <r-text>
+          <div><r-text emphasized>--modal-bg</r-text>: var(--color-bg-primary)</div>
+          <div><r-text emphasized>--modal-color</r-text>: var(--color-fg-primary)</div>
+          <div><r-text emphasized>--modal-radius</r-text>: var(--radius)</div>
+          <div><r-text emphasized>--modal-padding</r-text>: var(--space-4)</div>
+          <div><r-text emphasized>--modal-width</r-text>: 480px</div>
+          <div><r-text emphasized>--modal-max-width</r-text>: 90vw</div>
+          <div><r-text emphasized>--modal-shadow</r-text>: var(--shadow-lg)</div>
+          <div><r-text emphasized>--modal-overlay-bg</r-text>: rgba(0,0,0,0.5)</div>
+          <div><r-text emphasized>--modal-title-size</r-text>: var(--text-xl)</div>
+          <div><r-text emphasized>--modal-title-weight</r-text>: var(--font-weight-bold)</div>
+          <div><r-text emphasized>--modal-transition</r-text>: var(--transition-base)</div>
+        </r-text>
+
+      </r-card>
+    </div>
+  </body>
+</html>

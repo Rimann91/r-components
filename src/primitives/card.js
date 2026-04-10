@@ -1,36 +1,46 @@
 const template = document.createElement('template')
 template.innerHTML = `
-  <style> 
+  <style>
     :host {
       display: block;
       width: 100%;
       box-sizing: border-box;
-      font-family: 'fira code', monospace;
-      --card-color-bg: var(--color-bg-primary);
+
+      /* Exposed vars */
+      --card-bg:          var(--color-bg-primary);
+      --card-border-color: var(--color-divider);
+      --card-radius:      var(--radius);
+      --card-padding:     var(--space-2);
+      --card-font-size:   var(--text-base);
+      --card-title-size:  var(--text-xl);
+      --card-title-weight: var(--font-weight-bold);
     }
+
     .container {
-      background-color: var(--card-color-bg);
+      background-color: var(--card-bg);
       color: var(--color-fg-primary);
-      border-radius: 4px;
-      border: solid 1px var(--color-divider);
+      border-radius: var(--card-radius);
+      border: solid 1px var(--card-border-color);
+      font-family: var(--font-body, "Fira Code", monospace);
+      font-size: var(--card-font-size);
     }
     .header-slot {
       width: 100%;
-      border-bottom: solid 1px var(--color-divider);
+      border-bottom: solid 1px var(--card-border-color);
       display: flex;
       justify-content: space-between;
     }
     .title {
-      padding: 8px;
-      font-weight: 700;
-      font-size: 1.25rem;
-      line-height: 1.25
+      padding: var(--card-padding);
+      font-weight: var(--card-title-weight);
+      font-size: var(--card-title-size);
+      line-height: var(--line-height-tight);
     }
     .header-right-slot {
-      padding: 8px;
+      padding: var(--card-padding);
     }
     .content {
-      padding: 8px;
+      padding: var(--card-padding);
     }
   </style>
 <div class='container'>

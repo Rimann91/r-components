@@ -1,0 +1,112 @@
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script type="module" src="./doc.js"></script>
+    <link rel="stylesheet" href="../styles/gruvbox_dark_colors.css">
+    <link rel="stylesheet" href="../shared.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+    <style>
+      .demo { display: flex; flex-wrap: wrap; gap: 8px; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      
+
+      <r-card title="r-toast">
+
+        <r-heading three>Summary</r-heading>
+        <r-text>
+          <p>A fixed-position toast notification that slides in from the bottom-right.
+          Auto-dismisses after a configurable duration. Multiple toasts stack automatically.</p>
+          <p>Use the static <r-text emphasized>RToast.show()</r-text> API — no need to place
+          elements in your HTML.</p>
+          <pre><code>
+            <span>RToast.show({ message: 'Saved!', variant: 'success' });</span>
+            <span>RToast.show({ message: 'Uh oh!', variant: 'danger', duration: 0 }); // no auto-dismiss</span>
+          </code></pre>
+        </r-text>
+
+        <r-divider></r-divider>
+
+        <r-heading three>Demo</r-heading>
+        <div class="demo">
+          <r-button tertiary id="toast-default">Default</r-button>
+          <r-button primary   id="toast-info">Info</r-button>
+          <r-button success   id="toast-success">Success</r-button>
+          <r-button primary   id="toast-warning" style="--button-color-primary:var(--color-primary-yellow);--button-color-primary-hover:var(--color-secondary-yellow);">Warning</r-button>
+          <r-button danger    id="toast-danger">Danger</r-button>
+          <r-button secondary id="toast-persist">Persist (no auto-dismiss)</r-button>
+        </div>
+
+        <script type="module">
+          import { RToast } from '../src/primitives/toast.js';
+
+          document.getElementById('toast-default').addEventListener('click', () =>
+            RToast.show({ message: 'This is a default toast notification.' }));
+          document.getElementById('toast-info').addEventListener('click', () =>
+            RToast.show({ message: 'Here is some useful information.', variant: 'info' }));
+          document.getElementById('toast-success').addEventListener('click', () =>
+            RToast.show({ message: 'Changes saved successfully!', variant: 'success' }));
+          document.getElementById('toast-warning').addEventListener('click', () =>
+            RToast.show({ message: 'Proceed with caution.', variant: 'warning' }));
+          document.getElementById('toast-danger').addEventListener('click', () =>
+            RToast.show({ message: 'Something went wrong. Please try again.', variant: 'danger' }));
+          document.getElementById('toast-persist').addEventListener('click', () =>
+            RToast.show({ message: 'This toast will not auto-dismiss. Click ✕ to close.', variant: 'info', duration: 0 }));
+        </script>
+
+        <r-divider></r-divider>
+
+        <r-heading three>Static API</r-heading>
+        <r-text>
+          <p>Import <r-text emphasized>toast.js</r-text> and call:</p>
+          <pre><code>
+            <span>RToast.show({</span>
+            <span>  message:  'Your message here',</span>
+            <span>  variant:  'success',  // 'info' | 'success' | 'warning' | 'danger' | ''</span>
+            <span>  duration: 4000,       // ms until auto-dismiss. 0 = never</span>
+            <span>});</span>
+          </code></pre>
+          <p>Returns the <r-text emphasized>r-toast</r-text> element so you can dismiss it programmatically:</p>
+          <pre><code>
+            <span>const t = RToast.show({ message: 'Loading…', duration: 0 });</span>
+            <span>// later...</span>
+            <span>t._dismiss();</span>
+          </code></pre>
+        </r-text>
+
+        <r-divider></r-divider>
+
+        <r-heading three>Variants</r-heading>
+        <r-text>
+          <ul>
+            <li><r-text emphasized>info</r-text> — blue border/text</li>
+            <li><r-text emphasized>success</r-text> — green border/text</li>
+            <li><r-text emphasized>warning</r-text> — yellow border/text</li>
+            <li><r-text emphasized>danger</r-text> — red border/text</li>
+            <li>(none) — default border/text</li>
+          </ul>
+        </r-text>
+
+        <r-heading three>CSS Variables</r-heading>
+        <r-text>
+          <div><r-text emphasized>--toast-font-size</r-text>: var(--text-sm)</div>
+          <div><r-text emphasized>--toast-padding</r-text>: var(--space-3) var(--space-4)</div>
+          <div><r-text emphasized>--toast-radius</r-text>: var(--radius)</div>
+          <div><r-text emphasized>--toast-min-width</r-text>: 260px</div>
+          <div><r-text emphasized>--toast-max-width</r-text>: 380px</div>
+          <div><r-text emphasized>--toast-shadow</r-text>: var(--shadow-lg)</div>
+          <div><r-text emphasized>--toast-duration</r-text>: 250ms — slide animation duration</div>
+          <div><r-text emphasized>--toast-color</r-text>: text / border color</div>
+          <div><r-text emphasized>--toast-bg</r-text>: var(--color-bg-primary)</div>
+          <div><r-text emphasized>--toast-border-color</r-text>: var(--color-divider)</div>
+        </r-text>
+
+      </r-card>
+    </div>
+  </body>
+</html>

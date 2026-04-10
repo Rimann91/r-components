@@ -1,0 +1,76 @@
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script type="module" src="./doc.js"></script>
+    <link rel="stylesheet" href="../styles/gruvbox_dark_colors.css">
+    <link rel="stylesheet" href="../shared.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+    <style>
+      .demo { display: flex; flex-direction: column; gap: 12px; max-width: 280px; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      
+
+      <r-card title="r-input-datetime">
+
+        <r-heading three>Summary</r-heading>
+        <r-text>
+          <p>A date + time input with a calendar popup. Pick a date from the calendar,
+          enter the time in the HH:MM fields, then click <r-text emphasized>Confirm</r-text>.
+          Fires a <r-text emphasized>change</r-text> event with a full ISO timestamp.</p>
+          <pre><code>
+            <span>&lt;r-input-datetime label="Scheduled at"&gt;&lt;/r-input-datetime&gt;</span>
+          </code></pre>
+        </r-text>
+
+        <r-divider></r-divider>
+
+        <r-heading three>Demo</r-heading>
+        <div class="demo">
+          <r-input-datetime label="Pick date and time"></r-input-datetime>
+          <r-input-datetime label="Pre-filled" value="2026-04-10T14:30:00"></r-input-datetime>
+          <r-input-datetime label="Error state" error error-message="Datetime required"></r-input-datetime>
+          <r-input-datetime label="Disabled" disabled value="2026-01-01T09:00:00"></r-input-datetime>
+        </div>
+
+        <r-divider></r-divider>
+
+        <r-heading three>Attributes</r-heading>
+        <r-text>
+          <ul>
+            <li><r-text emphasized>label</r-text> — text above the input</li>
+            <li><r-text emphasized>value</r-text> — initial datetime (ISO 8601 string)</li>
+            <li><r-text emphasized>disabled</r-text> — disables the input</li>
+            <li><r-text emphasized>error</r-text> — activates error styles</li>
+            <li><r-text emphasized>error-message</r-text> — error text shown below when error is set</li>
+          </ul>
+        </r-text>
+
+        <r-heading three>Events</r-heading>
+        <r-text>
+          <ul>
+            <li><r-text emphasized>change</r-text> — fires on confirm with <r-text emphasized>detail: \{ value: ISO string \}</r-text></li>
+          </ul>
+        </r-text>
+
+        <r-heading three>CSS Variables</r-heading>
+        <r-text>
+          <div><r-text emphasized>--datetime-radius</r-text>: var(--radius)</div>
+          <div><r-text emphasized>--datetime-bg</r-text>: var(--color-bg-primary)</div>
+          <div><r-text emphasized>--datetime-color</r-text>: var(--color-fg-primary)</div>
+          <div><r-text emphasized>--datetime-border-color</r-text>: var(--color-divider)</div>
+          <div><r-text emphasized>--datetime-accent</r-text>: var(--color-primary-blue) — selected day and confirm button</div>
+          <div><r-text emphasized>--datetime-today-color</r-text>: var(--color-primary-blue)</div>
+          <div><r-text emphasized>--datetime-cell-size</r-text>: 32px</div>
+          <div><r-text emphasized>--datetime-popup-shadow</r-text>: var(--shadow-base)</div>
+        </r-text>
+
+      </r-card>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,76 @@
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script type="module" src="./doc.js"></script>
+    <link rel="stylesheet" href="../styles/gruvbox_dark_colors.css">
+    <link rel="stylesheet" href="../shared.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+    <style>
+      .demo { display: flex; flex-direction: column; gap: 12px; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      
+
+      <r-card title="r-switch">
+
+        <r-heading three>Summary</r-heading>
+        <r-text>
+          <p>A toggle switch. Keyboard accessible — space/enter to toggle.
+          Fires a <r-text emphasized>change</r-text> event with <r-text emphasized>detail.checked</r-text>.</p>
+          <pre><code>
+            <span>&lt;r-switch&gt;Dark mode&lt;/r-switch&gt;</span>
+            <span>&lt;r-switch checked&gt;Enabled&lt;/r-switch&gt;</span>
+            <span>&lt;r-switch disabled&gt;Unavailable&lt;/r-switch&gt;</span>
+          </code></pre>
+        </r-text>
+
+        <r-divider></r-divider>
+
+        <r-heading three>Demo</r-heading>
+        <div class="demo">
+          <r-switch>Off by default</r-switch>
+          <r-switch checked>On by default</r-switch>
+          <r-switch disabled>Disabled off</r-switch>
+          <r-switch checked disabled>Disabled on</r-switch>
+        </div>
+
+        <r-divider></r-divider>
+
+        <r-heading three>Attributes</r-heading>
+        <r-text>
+          <ul>
+            <li><r-text emphasized>checked</r-text> — sets initial on state</li>
+            <li><r-text emphasized>disabled</r-text> — disables interaction</li>
+          </ul>
+        </r-text>
+
+        <r-heading three>Events</r-heading>
+        <r-text>
+          <ul>
+            <li><r-text emphasized>change</r-text> — fires on toggle with <r-text emphasized>detail: \{ checked: boolean \}</r-text></li>
+          </ul>
+        </r-text>
+
+        <r-heading three>CSS Variables</r-heading>
+        <r-text>
+          <div><r-text emphasized>--switch-width</r-text>: 36px</div>
+          <div><r-text emphasized>--switch-height</r-text>: 20px</div>
+          <div><r-text emphasized>--switch-radius</r-text>: 10px</div>
+          <div><r-text emphasized>--switch-thumb-size</r-text>: 14px</div>
+          <div><r-text emphasized>--switch-thumb-color</r-text>: var(--color-bg-primary)</div>
+          <div><r-text emphasized>--switch-bg-off</r-text>: var(--color-gray-400)</div>
+          <div><r-text emphasized>--switch-bg-on</r-text>: var(--color-primary-blue)</div>
+          <div><r-text emphasized>--switch-transition</r-text>: var(--transition-fast)</div>
+          <div><r-text emphasized>--switch-focus-ring</r-text>: var(--focus-ring)</div>
+          <div><r-text emphasized>--switch-gap</r-text>: var(--space-2)</div>
+        </r-text>
+
+      </r-card>
+    </div>
+  </body>
+</html>

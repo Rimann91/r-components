@@ -1,0 +1,77 @@
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script type="module" src="./doc.js"></script>
+    <link rel="stylesheet" href="../styles/gruvbox_dark_colors.css">
+    <link rel="stylesheet" href="../shared.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+    <style>
+      .demo { display: flex; flex-direction: column; gap: 12px; max-width: 280px; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      
+
+      <r-card title="r-input-date">
+
+        <r-heading three>Summary</r-heading>
+        <r-text>
+          <p>A date input with a calendar popup. Click the 📅 button or the field to open.
+          Navigate months with ‹ › arrows. Fires a <r-text emphasized>change</r-text> event
+          with an ISO date string (<r-text emphasized>YYYY-MM-DD</r-text>).</p>
+          <pre><code>
+            <span>&lt;r-input-date label="Start date"&gt;&lt;/r-input-date&gt;</span>
+            <span>&lt;r-input-date label="Prefilled" value="2026-04-10"&gt;&lt;/r-input-date&gt;</span>
+          </code></pre>
+        </r-text>
+
+        <r-divider></r-divider>
+
+        <r-heading three>Demo</r-heading>
+        <div class="demo">
+          <r-input-date label="Pick a date"></r-input-date>
+          <r-input-date label="Pre-filled" value="2026-04-10"></r-input-date>
+          <r-input-date label="Error state" error error-message="Date required"></r-input-date>
+          <r-input-date label="Disabled" disabled value="2026-01-01"></r-input-date>
+        </div>
+
+        <r-divider></r-divider>
+
+        <r-heading three>Attributes</r-heading>
+        <r-text>
+          <ul>
+            <li><r-text emphasized>label</r-text> — text above the input</li>
+            <li><r-text emphasized>value</r-text> — initial date (YYYY-MM-DD format)</li>
+            <li><r-text emphasized>disabled</r-text> — disables the input</li>
+            <li><r-text emphasized>error</r-text> — activates error styles</li>
+            <li><r-text emphasized>error-message</r-text> — error text shown below when error is set</li>
+          </ul>
+        </r-text>
+
+        <r-heading three>Events</r-heading>
+        <r-text>
+          <ul>
+            <li><r-text emphasized>change</r-text> — fires on day selection with <r-text emphasized>detail: \{ value: "YYYY-MM-DD" \}</r-text></li>
+          </ul>
+        </r-text>
+
+        <r-heading three>CSS Variables</r-heading>
+        <r-text>
+          <div><r-text emphasized>--date-radius</r-text>: var(--radius)</div>
+          <div><r-text emphasized>--date-bg</r-text>: var(--color-bg-primary)</div>
+          <div><r-text emphasized>--date-color</r-text>: var(--color-fg-primary)</div>
+          <div><r-text emphasized>--date-border-color</r-text>: var(--color-divider)</div>
+          <div><r-text emphasized>--date-accent</r-text>: var(--color-primary-blue) — selected day fill</div>
+          <div><r-text emphasized>--date-today-color</r-text>: var(--color-primary-blue) — today highlight</div>
+          <div><r-text emphasized>--date-cell-size</r-text>: 32px</div>
+          <div><r-text emphasized>--date-popup-shadow</r-text>: var(--shadow-base)</div>
+        </r-text>
+
+      </r-card>
+    </div>
+  </body>
+</html>

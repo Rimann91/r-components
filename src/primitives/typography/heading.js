@@ -2,49 +2,34 @@ const template = document.createElement('template')
 template.innerHTML = `
  <style>
   :host {
-    --font-body: "Fira Code", monospace;
-    --heading-size-1: 1.75rem;
-    --heading-size-2: 1.50rem;
-    --heading-size-3: 1.25rem;
-    --heading-size-4: 1rem;
-    --text-small: 0.875rem;
-    --text-large: 1.123rem;
-    --heading-color: var(--color-fg-primary);
-    --heading-weight-1: 700;
-    --heading-weight-2: 600;
-    --heading-line-height: 1.5;
-    --vertical-margin: 8px;
-    font-family: var(--font-body, "Fira Code", monospace);
-  }
-  :host([one]) {
-    font-size: var(--heading-size-1);
+    /* Exposed vars */
+    --heading-font:        var(--font-body, "Fira Code", monospace);
+    --heading-color:       var(--color-fg-primary);
+    --heading-line-height: var(--line-height-base);
+    --heading-margin:      var(--space-2) 0;
+
+    --heading-size-1:   var(--text-3xl);
+    --heading-size-2:   var(--text-2xl);
+    --heading-size-3:   var(--text-xl);
+    --heading-size-4:   var(--text-base);
+
+    --heading-weight-1: var(--font-weight-bold);
+    --heading-weight-2: var(--font-weight-semibold);
+
+    display: block;
+    font-family: var(--heading-font);
     color: var(--heading-color);
-    font-weight: var(--heading-weight-1);
     line-height: var(--heading-line-height);
   }
-  :host([two]) {
-    font-size: var(--heading-size-2);
-    color: var(--heading-color);
-    font-weight: var(--heading-weight-1);
-    line-height: var(--heading-line-height);
-  }
-  :host([three]) {
-    font-size: var(--heading-size-3);
-    color: var(--heading-color);
-    font-weight: var(--heading-weight-2);
-    line-height: var(--heading-line-height);
-  }
-  :host([four]) {
-    font-size: var(--heading-size-4);
-    color: var(--heading-color);
-    font-weight: var(--heading-weight-2);
-    line-height: var(--heading-line-height);
-  }
+  :host([one])   { font-size: var(--heading-size-1); font-weight: var(--heading-weight-1); }
+  :host([two])   { font-size: var(--heading-size-2); font-weight: var(--heading-weight-1); }
+  :host([three]) { font-size: var(--heading-size-3); font-weight: var(--heading-weight-2); }
+  :host([four])  { font-size: var(--heading-size-4); font-weight: var(--heading-weight-2); }
+
   .container {
-    margin-top: var(--vertical-margin);
-    margin-bottom: var(--vertical-margin);
+    margin: var(--heading-margin);
   }
- </style> 
+ </style>
  <div class="container">
    <slot></slot>
  </div>

@@ -1,0 +1,80 @@
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script type="module" src="./doc.js"></script>
+    <link rel="stylesheet" href="../styles/gruvbox_dark_colors.css">
+    <link rel="stylesheet" href="../shared.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+    <style>
+      .demo { display: flex; flex-direction: column; gap: 12px; max-width: 240px; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      
+
+      <r-card title="r-input-number">
+
+        <r-heading three>Summary</r-heading>
+        <r-text>
+          <p>A numeric input with increment/decrement buttons. Browser spinners are hidden in favour
+          of the custom ± controls. Buttons disable automatically at <r-text emphasized>min</r-text>
+          and <r-text emphasized>max</r-text> boundaries.</p>
+          <pre><code>
+            <span>&lt;r-input-number label="Qty" value="1" min="0" max="10"&gt;&lt;/r-input-number&gt;</span>
+          </code></pre>
+        </r-text>
+
+        <r-divider></r-divider>
+
+        <r-heading three>Demo</r-heading>
+        <div class="demo">
+          <r-input-number label="Default"></r-input-number>
+          <r-input-number label="With min / max" value="5" min="0" max="10"></r-input-number>
+          <r-input-number label="Step 0.5" value="1" step="0.5"></r-input-number>
+          <r-input-number label="Error state" error error-message="Value out of range" value="3"></r-input-number>
+          <r-input-number label="Disabled" value="7" disabled></r-input-number>
+        </div>
+
+        <r-divider></r-divider>
+
+        <r-heading three>Attributes</r-heading>
+        <r-text>
+          <ul>
+            <li><r-text emphasized>label</r-text> — text above the input</li>
+            <li><r-text emphasized>value</r-text> — initial value</li>
+            <li><r-text emphasized>min</r-text> — minimum allowed value (disables − at boundary)</li>
+            <li><r-text emphasized>max</r-text> — maximum allowed value (disables + at boundary)</li>
+            <li><r-text emphasized>step</r-text> — increment amount (default: 1)</li>
+            <li><r-text emphasized>disabled</r-text> — disables the entire control</li>
+            <li><r-text emphasized>error</r-text> — activates error styles</li>
+            <li><r-text emphasized>error-message</r-text> — error text shown below when error is set</li>
+          </ul>
+        </r-text>
+
+        <r-heading three>Events</r-heading>
+        <r-text>
+          <ul>
+            <li><r-text emphasized>change</r-text> — fires on value change with <r-text emphasized>detail: \{ value: number \}</r-text></li>
+          </ul>
+        </r-text>
+
+        <r-heading three>CSS Variables</r-heading>
+        <r-text>
+          <div><r-text emphasized>--input-number-font-size</r-text>: var(--text-sm)</div>
+          <div><r-text emphasized>--input-number-radius</r-text>: var(--radius)</div>
+          <div><r-text emphasized>--input-number-bg</r-text>: var(--color-bg-primary)</div>
+          <div><r-text emphasized>--input-number-color</r-text>: var(--color-fg-primary)</div>
+          <div><r-text emphasized>--input-number-border-color</r-text>: var(--color-divider)</div>
+          <div><r-text emphasized>--input-number-focus-ring</r-text>: var(--focus-ring)</div>
+          <div><r-text emphasized>--input-number-btn-width</r-text>: 28px</div>
+          <div><r-text emphasized>--input-number-error-color</r-text>: var(--color-primary-red)</div>
+        </r-text>
+
+      </r-card>
+    </div>
+  </body>
+</html>

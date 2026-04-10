@@ -1,0 +1,90 @@
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script type="module" src="./doc.js"></script>
+    <link rel="stylesheet" href="../styles/gruvbox_dark_colors.css">
+    <link rel="stylesheet" href="../shared.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+    <style>
+      .box {
+        background: var(--color-bg-secondary);
+        border: 1px solid var(--color-divider);
+        border-radius: var(--radius);
+        padding: var(--space-4);
+        color: var(--color-fg-secondary);
+        font-family: var(--font-mono);
+        font-size: var(--text-sm);
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      
+
+      <r-card title="r-grid">
+
+        <r-heading three>Summary</r-heading>
+        <r-text>
+          <p>CSS Grid wrapper. Supports a fixed column count, a raw template string, or responsive
+          auto-fill columns based on a minimum column width.</p>
+        </r-text>
+
+        <r-divider></r-divider>
+
+        <r-heading three>columns="3"</r-heading>
+        <r-grid columns="3">
+          <div class="box">1</div>
+          <div class="box">2</div>
+          <div class="box">3</div>
+          <div class="box">4</div>
+          <div class="box">5</div>
+          <div class="box">6</div>
+        </r-grid>
+
+        <r-divider></r-divider>
+
+        <r-heading three>columns="2" gap="6"</r-heading>
+        <r-grid columns="2" gap="6">
+          <div class="box">Alpha</div>
+          <div class="box">Beta</div>
+          <div class="box">Gamma</div>
+          <div class="box">Delta</div>
+        </r-grid>
+
+        <r-divider></r-divider>
+
+        <r-heading three>Responsive auto-fill (min-col-width="160px")</r-heading>
+        <r-text><p>Resize the window to see columns reflow.</p></r-text>
+        <r-grid min-col-width="160px">
+          <div class="box">A</div>
+          <div class="box">B</div>
+          <div class="box">C</div>
+          <div class="box">D</div>
+          <div class="box">E</div>
+        </r-grid>
+
+        <r-divider></r-divider>
+
+        <r-heading three>Custom template (columns="1fr 2fr")</r-heading>
+        <r-grid columns="1fr 2fr">
+          <div class="box">Sidebar</div>
+          <div class="box">Main content</div>
+        </r-grid>
+
+        <r-divider></r-divider>
+
+        <r-heading three>Attributes</r-heading>
+        <r-text>
+          <div><r-text emphasized>columns</r-text>: integer → <code>repeat(N, 1fr)</code>; template string → used as-is; omit → responsive auto-fill</div>
+          <div><r-text emphasized>gap</r-text>: spacing scale number (1–12). Default: <code>4</code></div>
+          <div><r-text emphasized>min-col-width</r-text>: min width for auto-fill mode. Default: <code>200px</code></div>
+        </r-text>
+
+      </r-card>
+    </div>
+  </body>
+</html>

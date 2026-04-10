@@ -1,0 +1,84 @@
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script type="module" src="./doc.js"></script>
+    <link rel="stylesheet" href="../styles/gruvbox_dark_colors.css">
+    <link rel="stylesheet" href="../shared.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+    <style>
+      .box {
+        background: var(--color-bg-secondary);
+        border: 1px solid var(--color-divider);
+        border-radius: var(--radius);
+        padding: var(--space-3) var(--space-4);
+        color: var(--color-fg-secondary);
+        font-family: var(--font-mono);
+        font-size: var(--text-sm);
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      
+
+      <r-card title="r-stack">
+
+        <r-heading three>Summary</r-heading>
+        <r-text>
+          <p>Vertical flex column. Sets <code>display:flex</code>, <code>flex-direction:column</code>,
+          and a consistent <code>gap</code> from the spacing scale. No shadow DOM — styles are applied
+          directly to the host element so children are naturally in flow.</p>
+        </r-text>
+
+        <r-divider></r-divider>
+
+        <r-heading three>Default (gap="4")</r-heading>
+        <r-stack>
+          <div class="box">Item 1</div>
+          <div class="box">Item 2</div>
+          <div class="box">Item 3</div>
+        </r-stack>
+
+        <r-divider></r-divider>
+
+        <r-heading three>gap="2"</r-heading>
+        <r-stack gap="2">
+          <div class="box">Item 1</div>
+          <div class="box">Item 2</div>
+          <div class="box">Item 3</div>
+        </r-stack>
+
+        <r-divider></r-divider>
+
+        <r-heading three>gap="8"</r-heading>
+        <r-stack gap="8">
+          <div class="box">Item 1</div>
+          <div class="box">Item 2</div>
+          <div class="box">Item 3</div>
+        </r-stack>
+
+        <r-divider></r-divider>
+
+        <r-heading three>align="center"</r-heading>
+        <r-stack align="center">
+          <div class="box" style="width:120px">Narrow</div>
+          <div class="box">Full width item</div>
+          <div class="box" style="width:80px">Slim</div>
+        </r-stack>
+
+        <r-divider></r-divider>
+
+        <r-heading three>Attributes</r-heading>
+        <r-text>
+          <div><r-text emphasized>gap</r-text>: spacing scale number (1–12). Default: <code>4</code></div>
+          <div><r-text emphasized>align</r-text>: CSS <code>align-items</code> value. Default: <code>stretch</code></div>
+        </r-text>
+
+      </r-card>
+    </div>
+  </body>
+</html>

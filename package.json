@@ -18,6 +18,10 @@
     "doc": "doc"
   },
   "scripts": {
+    "dev": "vite",
     "test": "vitest"
+  },
+  "devDependencies": {
+    "vite": "^8.0.8"
   }
 }

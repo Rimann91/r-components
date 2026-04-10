@@ -1,0 +1,77 @@
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script type="module" src="./doc.js"></script>
+    <link rel="stylesheet" href="../styles/gruvbox_dark_colors.css">
+    <link rel="stylesheet" href="../shared.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+    <style>
+      .demo { display: flex; flex-direction: column; gap: 8px; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      
+
+      <r-card title="r-alert">
+
+        <r-heading three>Summary</r-heading>
+        <r-text>
+          <p>A contextual feedback message. Four semantic variants. Optionally dismissible — clicking ✕
+          fires a <r-text emphasized>dismiss</r-text> event and removes the element.</p>
+          <pre><code>
+            <span>&lt;r-alert info&gt;Something to note.&lt;/r-alert&gt;</span>
+            <span>&lt;r-alert danger dismissible&gt;Destructive action taken.&lt;/r-alert&gt;</span>
+          </code></pre>
+        </r-text>
+
+        <r-divider></r-divider>
+
+        <r-heading three>Variants</r-heading>
+        <div class="demo">
+          <r-alert>Default — no variant</r-alert>
+          <r-alert info>Info — informational message</r-alert>
+          <r-alert success>Success — action completed</r-alert>
+          <r-alert warning>Warning — proceed with caution</r-alert>
+          <r-alert danger>Danger — something went wrong</r-alert>
+        </div>
+
+        <r-divider></r-divider>
+
+        <r-heading three>Dismissible</r-heading>
+        <div class="demo">
+          <r-alert success dismissible>This alert can be dismissed. Click ✕ to remove it.</r-alert>
+          <r-alert danger dismissible>Danger! This is also dismissible.</r-alert>
+        </div>
+
+        <r-divider></r-divider>
+
+        <r-heading three>Attributes</r-heading>
+        <r-text>
+          <ul>
+            <li><r-text emphasized>info</r-text> — blue border/text</li>
+            <li><r-text emphasized>success</r-text> — green border/text</li>
+            <li><r-text emphasized>warning</r-text> — yellow border/text</li>
+            <li><r-text emphasized>danger</r-text> — red border/text</li>
+            <li><r-text emphasized>dismissible</r-text> — shows ✕ button; fires <r-text emphasized>dismiss</r-text> event on click and removes element</li>
+          </ul>
+        </r-text>
+
+        <r-heading three>CSS Variables</r-heading>
+        <r-text>
+          <div><r-text emphasized>--alert-font-size</r-text>: var(--text-sm)</div>
+          <div><r-text emphasized>--alert-padding</r-text>: var(--space-3) var(--space-4)</div>
+          <div><r-text emphasized>--alert-radius</r-text>: var(--radius)</div>
+          <div><r-text emphasized>--alert-color</r-text>: text color</div>
+          <div><r-text emphasized>--alert-bg</r-text>: background color</div>
+          <div><r-text emphasized>--alert-border-color</r-text>: border color</div>
+          <div><r-text emphasized>--alert-border-width</r-text>: 1px</div>
+        </r-text>
+
+      </r-card>
+    </div>
+  </body>
+</html>

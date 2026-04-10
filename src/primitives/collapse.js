@@ -1,21 +1,22 @@
 const template = document.createElement('template')
 template.innerHTML = `
-  <style> 
+  <style>
     :host {
       display: block;
       box-sizing: border-box;
-      font-family: 'fira code', monospace;
+
+      /* Exposed vars */
+      --collapse-transition: var(--transition-base);
     }
-    .container{
+
+    .container {
       display: grid;
       overflow: hidden;
-      transition: grid-template-rows 250ms ease;
+      transition: grid-template-rows var(--collapse-transition);
       grid-template-rows: 0fr;
     }
     :host([open]) .container {
       grid-template-rows: 1fr;
-
-
     }
     .content {
       overflow: hidden;
@@ -33,7 +34,6 @@ template.innerHTML = `
 class RCollapse extends HTMLElement {
   constructor() {
     super();
-    console.log('collapse constructed');
     this.attachShadow({ mode: "open" });
     this.shadowRoot.append(template.content.cloneNode(true))
   }

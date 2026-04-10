@@ -1,0 +1,69 @@
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script type="module" src="./doc.js"></script>
+    <link rel="stylesheet" href="../styles/gruvbox_dark_colors.css">
+    <link rel="stylesheet" href="../shared.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+    <style>
+      .demo { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      
+
+      <r-card title="r-badge">
+
+        <r-heading three>Summary</r-heading>
+        <r-text>
+          <p>A small inline label for status, categorization, or counts. Five semantic variants via attribute.</p>
+          <pre><code>
+            <span>&lt;r-badge primary&gt;New&lt;/r-badge&gt;</span>
+            <span>&lt;r-badge success&gt;Active&lt;/r-badge&gt;</span>
+          </code></pre>
+        </r-text>
+
+        <r-divider></r-divider>
+
+        <r-heading three>Variants</r-heading>
+        <div class="demo">
+          <r-badge>Default</r-badge>
+          <r-badge primary>Primary</r-badge>
+          <r-badge success>Success</r-badge>
+          <r-badge warning>Warning</r-badge>
+          <r-badge danger>Danger</r-badge>
+          <r-badge neutral>Neutral</r-badge>
+        </div>
+
+        <r-divider></r-divider>
+
+        <r-heading three>Attributes</r-heading>
+        <r-text>
+          <ul>
+            <li><r-text emphasized>primary</r-text> — blue filled pill</li>
+            <li><r-text emphasized>success</r-text> — green filled pill</li>
+            <li><r-text emphasized>warning</r-text> — yellow filled pill (dark text for contrast)</li>
+            <li><r-text emphasized>danger</r-text> — red filled pill</li>
+            <li><r-text emphasized>neutral</r-text> — gray filled pill</li>
+          </ul>
+        </r-text>
+
+        <r-heading three>CSS Variables</r-heading>
+        <r-text>
+          <div><r-text emphasized>--badge-font-size</r-text>: var(--text-xs)</div>
+          <div><r-text emphasized>--badge-font-weight</r-text>: var(--font-weight-medium)</div>
+          <div><r-text emphasized>--badge-padding</r-text>: 0 var(--space-2)</div>
+          <div><r-text emphasized>--badge-radius</r-text>: 9999px — pill shape by default</div>
+          <div><r-text emphasized>--badge-height</r-text>: 20px</div>
+          <div><r-text emphasized>--badge-color</r-text>: text color (defaults to bg color for contrast)</div>
+          <div><r-text emphasized>--badge-bg</r-text>: background fill color</div>
+        </r-text>
+
+      </r-card>
+    </div>
+  </body>
+</html>

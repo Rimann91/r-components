@@ -1,0 +1,81 @@
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script type="module" src="./doc.js"></script>
+    <link rel="stylesheet" href="../styles/gruvbox_dark_colors.css">
+    <link rel="stylesheet" href="../shared.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+    <style>
+      .demo { display: flex; flex-direction: column; gap: 8px; }
+      .demo-controls { display: flex; gap: 8px; }
+      .collapse-content { padding: 8px; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      
+
+      <r-card title="r-collapse">
+
+        <r-heading three>Summary</r-heading>
+        <r-text>
+          <p>An animated show/hide container driven by the <r-text emphasized>open</r-text> attribute.
+          Uses a CSS grid trick for smooth height transitions with no JS measurement.</p>
+          <pre><code>
+            <span>&lt;r-collapse open&gt; Content &lt;/r-collapse&gt;</span>
+          </code></pre>
+        </r-text>
+
+        <r-divider></r-divider>
+
+        <r-heading three>Demo</r-heading>
+        <div class="demo">
+          <div class="demo-controls">
+            <r-button primary id="btn-open">Open</r-button>
+            <r-button secondary id="btn-close">Close</r-button>
+            <r-button tertiary id="btn-toggle">Toggle</r-button>
+          </div>
+          <r-collapse id="demo-collapse" open>
+            <div class="collapse-content">
+              <r-text>This content is inside the collapse. It animates smoothly in and out.</r-text>
+            </div>
+          </r-collapse>
+        </div>
+
+        <script type="module">
+          const collapse = document.getElementById('demo-collapse');
+          document.getElementById('btn-open').addEventListener('click', () => collapse.open());
+          document.getElementById('btn-close').addEventListener('click', () => collapse.close());
+          document.getElementById('btn-toggle').addEventListener('click', () => collapse.toggle());
+        </script>
+
+        <r-divider></r-divider>
+
+        <r-heading three>Attributes</r-heading>
+        <r-text>
+          <ul>
+            <li><r-text emphasized>open</r-text> — presence of this attribute shows the content</li>
+          </ul>
+        </r-text>
+
+        <r-heading three>Methods</r-heading>
+        <r-text>
+          <ul>
+            <li><r-text emphasized>open()</r-text> — sets the open attribute</li>
+            <li><r-text emphasized>close()</r-text> — removes the open attribute</li>
+            <li><r-text emphasized>toggle()</r-text> — toggles the open attribute</li>
+          </ul>
+        </r-text>
+
+        <r-heading three>CSS Variables</r-heading>
+        <r-text>
+          <div><r-text emphasized>--collapse-transition</r-text>: var(--transition-base) — animation speed and easing</div>
+        </r-text>
+
+      </r-card>
+    </div>
+  </body>
+</html>
