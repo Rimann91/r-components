@@ -8,38 +8,92 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
-
-    <script>
-    </script>
-
-    <style>
-    </style>
-
   </head>
   <body>
     <div class='container'>
-    <r-card title="Card">
+
+      <r-card title="Card">
+
         <r-heading three>Summary</r-heading>
         <r-text>
           <p>
-          Card is the most basic container for content. It provides background,
-          borders, and a title header space deleniated by a border 
+            Card is the most basic content container. It provides a background,
+            bordered surface with an optional titled header area separated by a divider.
           </p>
-
-          <pre><code>
-            <span>&lt;r-card title="some title"&gt; Content &lt;/r-button&gt;</span>
-          </code></pre>
-
         </r-text>
-        <r-heading three>Variables</r-heading>
-        <r-tet>
-          <p>
-            <div>
-            --card-color-bg
-            </div>
-          </p>
-        </r-tet>
-    </r-card>
+
+        <r-divider></r-divider>
+
+        <r-heading three>Examples</r-heading>
+
+        <!-- Basic card with title -->
+        <r-text muted size="sm">Basic card with title</r-text>
+        <r-card title="Card Title" style="margin-bottom: var(--space-4);">
+          <r-text>Default slot content goes here.</r-text>
+        </r-card>
+        <pre><code>&lt;r-card title="Card Title"&gt;
+  Content goes here.
+&lt;/r-card&gt;</code></pre>
+
+        <!-- Card with header-slot-right -->
+        <r-text muted size="sm">Card with action in header (header-slot-right)</r-text>
+        <r-card title="With Header Action" style="margin-bottom: var(--space-4);">
+          <div slot="header-slot-right">
+            <r-button tertiary>Edit</r-button>
+          </div>
+          <r-text>Use <r-text emphasized>slot="header-slot-right"</r-text> to place content on the right side of the header.</r-text>
+        </r-card>
+        <pre><code>&lt;r-card title="With Header Action"&gt;
+  &lt;r-button slot="header-slot-right" tertiary&gt;Edit&lt;/r-button&gt;
+  Content goes here.
+&lt;/r-card&gt;</code></pre>
+
+        <!-- Card with no title -->
+        <r-text muted size="sm">Card with no title (header hidden via slot="header")</r-text>
+        <r-card style="margin-bottom: var(--space-4);">
+          <div slot="header"><!-- empty header --></div>
+          <r-text>Omitting the title attribute leaves the header bar visible but empty. Supply an empty <r-text emphasized>slot="header"</r-text> to hide it entirely.</r-text>
+        </r-card>
+        <pre><code>&lt;r-card&gt;
+  &lt;div slot="header"&gt;&lt;/div&gt;
+  Content with no header.
+&lt;/r-card&gt;</code></pre>
+
+        <r-divider></r-divider>
+
+        <r-heading three>Attributes</r-heading>
+        <r-text>
+          <ul>
+            <li><r-text emphasized>title</r-text>: Sets the card header title text.</li>
+          </ul>
+        </r-text>
+
+        <r-divider></r-divider>
+
+        <r-heading three>Slots</r-heading>
+        <r-text>
+          <ul>
+            <li><r-text emphasized>default</r-text>: Main content area of the card.</li>
+            <li><r-text emphasized>header-slot-right</r-text>: Content placed on the right side of the header (e.g. a button or badge).</li>
+            <li><r-text emphasized>slot-left</r-text>: Replaces the title area in the header left side.</li>
+            <li><r-text emphasized>header</r-text>: Replaces the entire header row. Use an empty element to hide the header completely.</li>
+          </ul>
+        </r-text>
+
+        <r-divider></r-divider>
+
+        <r-heading three>CSS Variables</r-heading>
+        <r-text>
+          <div><r-text emphasized>--card-bg</r-text>: var(--color-bg-primary) — card surface background color.</div>
+          <div><r-text emphasized>--card-border-color</r-text>: var(--color-divider) — border and header divider color.</div>
+          <div><r-text emphasized>--card-radius</r-text>: var(--radius) — corner radius.</div>
+          <div><r-text emphasized>--card-padding</r-text>: var(--space-2) — padding for header and content areas.</div>
+          <div><r-text emphasized>--card-font-size</r-text>: var(--text-base) — body font size.</div>
+          <div><r-text emphasized>--card-title-size</r-text>: var(--text-xl) — header title font size.</div>
+          <div><r-text emphasized>--card-title-weight</r-text>: var(--font-weight-bold) — header title font weight.</div>
+        </r-text>
+
+      </r-card>
     </div>
   </body>
 </html>

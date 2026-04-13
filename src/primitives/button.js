@@ -28,6 +28,7 @@ template.innerHTML = `
       --button-color-danger-hover: var(--color-secondary-red);
 
       --button-bg-hollow: var(--color-bg-primary);
+      --button-bg-ghost:  transparent;
     }
 
     button {
@@ -78,6 +79,15 @@ template.innerHTML = `
     }
     :host([tertiary]) button:hover {
       background-color: var(--color-gray-200);
+    }
+
+    :host([ghost]) button {
+      color: var(--color-fg-primary);
+      background-color: var(--button-bg-ghost);
+      border-color: var(--color-gray-300);
+    }
+    :host([ghost]) button:hover {
+      background-color: var(--color-bg-hover);
     }
 
     :host([success]) button {
