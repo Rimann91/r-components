@@ -129,6 +129,9 @@ class RSelect extends HTMLElement {
     this._observer.observe(this, { childList: true });
   }
 
+  get value() { return this._select.value; }
+  set value(v) { this._select.value = v; }
+
   disconnectedCallback() {
     this._observer?.disconnect();
   }
